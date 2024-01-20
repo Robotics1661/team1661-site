@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="icon" href="src/images/1661-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <title>Team 1661</title>
+  </head>
+  <body>
+    <script>
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        var areaHeight = window.innerHeight;
+
+        for (var i = 0; i < reveals.length; i++) {
+          var areaTop = reveals[i].getBoundingClientRect().top;
+          var areaBottom = areaTop + reveals[i].clientHeight;
+
+          if (areaTop < areaHeight && areaBottom >= 0) {
+            reveals[i].classList.add("active");
+          } else {
+            reveals[i].classList.remove("active");
+          }
+        }
+      }
+
+      // Trigger the reveal function on page load and scroll
+      window.addEventListener("load", reveal);
+      window.addEventListener("scroll", reveal);
+    </script>
+    <section class="nav-bar">
+      <nav class="fixed-nav">
+        <img
+          class="logo"
+          src="src/images/1661-logo-black.png"
+          alt="Team 1661 Logo"
+        />
+        <ul id="navList">
+          <li><a href="#about-us">About</a></li>
+          <li><a href="#robots">Robots</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#sponsors">Sponsors</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section class="intro-page">
+      <div>
+        <h1>Griffitrons</h1>
+        <h1>1661</h1>
+        <div class="button"><a href="#about-us">Who We Are</a></div>
+      </div>
+    </section>
+
+    <section id="about" class="reveal">
+      <div>
+        <h2 class="about-our-team" id="about-us">ABOUT OUR TEAM</h2>
+        <hr />
+        <p class="about-writing">
+          Team 1661 is a FIRST Robotics Competition team located at the Buckley
+          School in Sherman Oaks, CA. We've been competing in FRC since our
+          team's inception in 2005 and have won multiple competition awards over
+          the years. Our team typically consists of 15-30 members, and we are
+          working to expand both the team and our efforts to promote STEAM
+          education in our school and local community.
+        </p>
+      </div>
+    </section>
+
+    <section id="robots" class="reveal">
+      <h3 class="robot-head">Our Previous Robots:</h3>
+      <hr />
+      <img class="robot-photo" src="src/images/2023-bot.png" />
+      <img class="robot-photo" src="src/images/2022-bot.png" />
+    </section>
+  </body>
+</html>
+
+<!--Color palette: https://colorhunt.co/palette/fbf9fafd0054a800382b2024-->

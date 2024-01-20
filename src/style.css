@@ -1,0 +1,190 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+/* Applying smooth scroll behavior to the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Setting font and removing default body margin */
+  body {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+  }
+  
+  /* Styling the navigation bar */
+  .fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white; /* Choose your desired background color */
+    z-index: 1000; /* Ensuring it appears above other elements */
+  }
+  
+  /* Styling the navigation bar content */
+  .nav-bar {
+    height: 10vh;
+    color: black;
+    font-size: 40px;
+    padding-top: 60px; /* Adjusting padding to prevent content from being hidden */
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  
+  /* Styling the logo */
+  .logo {
+    width: 10%;
+    height: auto; /* Allowing proportional scaling */
+    margin-left: 10px;
+  }
+  
+  /* Styling the navigation list */
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Styling the navigation links */
+  #navList {
+    list-style: none; /* Removing default list styles */
+  }
+  
+  #navList li {
+    display: inline-block; /* Displaying list items horizontally */
+    margin-right: 30px; /* Adjusting spacing between list items */
+    margin-top: 10px;
+  }
+  
+  #navList a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* Ensuring smooth transition on hover */
+  #navList a:hover {
+    color: #ff0000; /* Adjusting color on hover */
+    transition: .3s;
+  }
+  
+  .intro-page {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    height: 100vh; /* Set height to fill the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .intro-page div {
+    max-width: 600px; /* Adjust the max-width based on your design */
+  }
+  
+
+.intro-page h1{
+  font-size: 550%;
+  white-space: nowrap;
+  font-family: 'Barlow Condensed', sans-serif;
+  /* font-family: 'Russo One', sans-serif; */
+}
+
+.button {
+  width: 200px;
+  height: 50px;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 30px;
+  text-align: center;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 7px;
+  font-size: 30px;
+  font-weight: 300;
+  transition: 0.4s;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.button:hover {
+  background-color: #BEBEBE;
+}
+
+.button:active {
+  background-color: black;
+  color: #808080;
+}
+
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#about{
+  height: 80vh;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.about-our-team{
+  font-size: 50px;
+  font-style: italic;
+  letter-spacing: 0.25em;
+  text-align: center;
+}
+
+/*For the center line */
+hr { 
+  transform-origin: center;
+  width: 64px;
+  height: 5px;
+  background-color: black;
+  margin: 0 auto; 
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.about-writing{
+  letter-spacing: 0.05em;
+  width: 50%;
+  text-align: center;
+  line-height: normal;
+  font-size: 25px;
+  margin: 0 auto; 
+}
+
+/* Previus robot section */
+
+#robots{
+  height: 80vh;
+  font-family: 'Barlow Condensed', sans-serif;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.robot-head{
+  font-size: 50px;
+  font-style: italic;
+  letter-spacing: 0.25em;
+  text-align: center;
+}
+
+.robot-photo{
+  height: 450px;
+  width: 450px;
+  border-radius: 7%;
+  
+}
