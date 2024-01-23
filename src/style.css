@@ -134,8 +134,8 @@ a{
   opacity: 1;
 }
 
-#about{
-  height: 80vh;
+#about-sec{
+  height: 100vh;
   font-family: 'Barlow Condensed', sans-serif;
 }
 
@@ -169,7 +169,7 @@ hr {
 /* Previus robot section */
 
 #robots{
-  height: 80vh;
+  height: 100vh;
   font-family: 'Barlow Condensed', sans-serif;
   text-align: center;
   margin: 0 auto;
@@ -185,6 +185,42 @@ hr {
 .robot-photo{
   height: 450px;
   width: 450px;
-  border-radius: 7%;
+  border-radius: 7%; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: .4s;
   
+}
+
+.robot-photo:hover{
+  box-shadow: 3px 6px;
+}
+
+.robot-text {
+  display: flex;
+  justify-content: space-evenly; /* Adjust the spacing between elements */
+  align-items: center; /* Center items vertically */
+  text-align: center; /* Center text horizontally */
+  margin: 0 auto;
+}
+
+.robot-text h2 {
+  font-size: 40px;
+  margin-bottom: 10px; /* Add space between the year and robot name */
+}
+
+.robot-text h3 {
+  font-size: 30px; /* Adjust font size for robot names */
+}
+
+#awards{
+  height: 100vh;
+
+}
+
+.our-awards{
+  margin-top: 100px;
+  font-size: 50px;
+  font-style: italic;
+  letter-spacing: 0.25em;
+  text-align: center;
 }
