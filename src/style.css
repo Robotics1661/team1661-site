@@ -1,98 +1,92 @@
 /* Resetting default margin and padding */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-/* Applying smooth scroll behavior to the entire page */
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  /* Setting font and removing default body margin */
-  body {
-    font-family: 'Rubik', sans-serif;
-    margin: 0;
-  }
-  
-  /* Styling the navigation bar */
-  .fixed-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: white; /* Choose your desired background color */
-    z-index: 1000; /* Ensuring it appears above other elements */
-  }
-  
-  /* Styling the navigation bar content */
-  .nav-bar {
-    height: 10vh;
-    color: black;
-    font-size: 40px;
-    padding-top: 60px; /* Adjusting padding to prevent content from being hidden */
-    font-family: 'Barlow Condensed', sans-serif;
-  }
-  
-  /* Styling the logo */
-  .logo {
-    width: 10%;
-    height: auto; /* Allowing proportional scaling */
-    margin-left: 10px;
-  }
-  
-  /* Styling the navigation list */
-  nav {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  /* Styling the navigation links */
-  #navList {
-    list-style: none; /* Removing default list styles */
-  }
-  
-  #navList li {
-    display: inline-block; /* Displaying list items horizontally */
-    margin-right: 30px; /* Adjusting spacing between list items */
-    margin-top: 10px;
-  }
-  
-  #navList a {
-    text-decoration: none;
-    color: black;
-  }
-  
-  /* Ensuring smooth transition on hover */
-  #navList a:hover {
-    color: #ff0000; /* Adjusting color on hover */
-    transition: .3s;
-  }
-  
-  .intro-page {
-    text-align: center;
-    font-family: 'Barlow Condensed', sans-serif;
-    height: 100vh; /* Set height to fill the viewport */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .intro-page div {
-    max-width: 600px; /* Adjust the max-width based on your design */
-  }
-  
+  margin: 0;
+  padding: 0;
+}
 
-.intro-page h1{
-  font-size: 550%;
-  white-space: nowrap;
+/* Applying smooth scroll behavior to the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Setting font and removing default body margin */
+body {
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+}
+
+/* Styling the navigation bar */
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white; /* Choose your desired background color */
+  z-index: 1000; /* Ensuring it appears above other elements */
+}
+
+/* Styling the navigation bar content */
+.nav-bar {
+  height: 10vh;
+  color: black;
+  font-size: 40px;
+  padding-top: 20px; /* Adjusting padding to prevent content from being hidden */
+  font-family: 'SF TransRobotics', 'Barlow Condensed', sans-serif;
+}
+
+/* Styling the logo */
+.logo {
+  width: 10%;
+  height: auto; /* Allowing proportional scaling */
+  margin-left: 10px;
+}
+
+/* Styling the navigation list */
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Styling the navigation links */
+#navList {
+  list-style: none; /* Removing default list styles */
+  display: flex;
+}
+
+#navList li {
+  margin-right: 20px; /* Adjusting spacing between list items */
+}
+
+#navList a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Ensuring smooth transition on hover */
+#navList a:hover {
+  color: #ff0000; /* Adjusting color on hover */
+  transition: .3s;
+}
+
+.intro-page {
+  text-align: center;
   font-family: 'Barlow Condensed', sans-serif;
-  /* font-family: 'Russo One', sans-serif; */
+  height: 100vh; /* Set height to fill the viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-heading {
+  font-size: 5vw; /* Responsive font size */
+  white-space: nowrap;
+  font-family: 'SF TransRobotics', sans-serif;
 }
 
 .button {
-  width: 200px;
+  width: 40vw;
+  max-width: 200px;
   height: 50px;
   background-color: #ff0000;
   color: white;
@@ -101,20 +95,20 @@
   align-items: center;
   margin-top: 20px;
   padding-top: 7px;
-  font-size: 30px;
+  font-size: 2vw; /* Responsive font size */
   font-weight: 300;
   transition: 0.4s;
   text-decoration: none;
   margin: 0 auto;
 }
 
-a{
+a {
   text-decoration: none;
   color: white;
 }
 
 .button:hover {
-  background-color: #BEBEBE;
+  background-color: #bebebe;
 }
 
 .button:active {
@@ -122,105 +116,214 @@ a{
   color: #808080;
 }
 
-.reveal{
+svg {
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  transition: .4s;
+}
+
+/* Media Queries for Responsive Design */
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .nav-bar {
+    font-size: 4vw;
+  }
+
+  .logo {
+    width: 15%;
+  }
+
+  .intro-heading {
+    font-size: 8vw;
+  }
+
+  .button {
+    width: 30vw;
+    height: 3vh;
+    font-size: 4vw;
+  }
+
+  .robot-photo {
+    height: 40vw;
+    width: 40vw;
+  }
+
+  .robot-text h2 {
+    font-size: 5vw;
+  }
+
+  .robot-text h3 {
+    font-size: 4vw;
+  }
+
+  .our-awards {
+    font-size: 8vw;
+  }
+
+  .award-text {
+    font-size: 5vw;
+  }
+
+  .award-year {
+    font-size: 8vw;
+  }
+
+  .socials-head {
+    font-size: 8vw;
+  }
+
+  .fixed-nav {
+    position: fixed;
+  }
+}
+
+.reveal {
   position: relative;
-  transform: translateY(150px);
+  transform: translateY(10%);
   opacity: 0;
   transition: 2s all ease;
 }
 
-.reveal.active{
+.reveal.active {
   transform: translateY(0);
   opacity: 1;
 }
 
-#about-sec{
+#about-sec {
   height: 100vh;
   font-family: 'Barlow Condensed', sans-serif;
 }
 
-.about-our-team{
-  font-size: 50px;
+.about-our-team {
+  font-size: 5vw; /* Responsive font size */
   font-style: italic;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.2em;
   text-align: center;
+  font-family: 'SF TransRobotics', 'Barlow Condensed', sans-serif;
 }
 
-/*For the center line */
-hr { 
+/* For the center line */
+hr {
   transform-origin: center;
-  width: 64px;
-  height: 5px;
+  width: 7vw; /* Responsive line width */
+  height: 0.5vh; /* Responsive line height */
   background-color: black;
-  margin: 0 auto; 
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin: 0 auto;
+  margin-top: 2vh; /* Responsive margin top */
+  margin-bottom: 2vh; /* Responsive margin bottom */
 }
 
-.about-writing{
+.about-writing {
   letter-spacing: 0.05em;
-  width: 50%;
+  width: 80%; /* Responsive width */
   text-align: center;
   line-height: normal;
-  font-size: 25px;
-  margin: 0 auto; 
+  font-size: 2vw; /* Responsive font size */
+  margin: 0 auto;
 }
 
-/* Previus robot section */
+/* Previous robot section */
 
-#robots{
+#robots {
   height: 100vh;
   font-family: 'Barlow Condensed', sans-serif;
   text-align: center;
   margin: 0 auto;
 }
 
-.robot-head{
-  font-size: 50px;
+.robot-head {
+  font-size: 5vw; /* Responsive font size */
   font-style: italic;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.2em;
   text-align: center;
+  font-family: 'SF TransRobotics', 'Barlow Condensed', sans-serif;
 }
 
-.robot-photo{
-  height: 450px;
-  width: 450px;
-  border-radius: 7%; 
+.robot-photo {
+  height: 30vw; /* Responsive height */
+  width: 30vw; /* Responsive width */
+  border-radius: 7%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: .4s;
-  
+  margin: 0 2vw; /* Responsive margin */
 }
 
-.robot-photo:hover{
-  box-shadow: 3px 6px;
+.robot-photo:hover {
+  box-shadow: 1px 3px;
 }
 
 .robot-text {
   display: flex;
-  justify-content: space-evenly; /* Adjust the spacing between elements */
-  align-items: center; /* Center items vertically */
-  text-align: center; /* Center text horizontally */
+  flex-wrap: wrap; /* Wrap elements in smaller screens */
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
   margin: 0 auto;
 }
 
 .robot-text h2 {
-  font-size: 40px;
-  margin-bottom: 10px; /* Add space between the year and robot name */
+  font-size: 3vw; /* Responsive font size */
+  margin-bottom: 1vh; /* Responsive margin bottom */
 }
 
 .robot-text h3 {
-  font-size: 30px; /* Adjust font size for robot names */
+  font-size: 2vw; /* Responsive font size */
 }
 
-#awards{
+#awards {
   height: 100vh;
-
 }
 
-.our-awards{
-  margin-top: 100px;
-  font-size: 50px;
+.our-awards {
+  margin-top: 5vh; /* Responsive margin top */
+  font-size: 5vw; /* Responsive font size */
   font-style: italic;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.15em; /* Responsive letter spacing */
   text-align: center;
+  font-family: 'SF TransRobotics', 'Barlow Condensed', sans-serif;
+}
+
+.award-text {
+  display: flex;
+  flex-wrap: wrap; /* Wrap elements in smaller screens */
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 3vw; /* Responsive font size */
+}
+
+ul {
+  list-style: none;
+}
+
+.award-year {
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 5vw; /* Responsive font size */
+}
+
+#socials{
+  height: 40vh;
+}
+
+.socials-head {
+  font-size: 5vw; /* Responsive font size */
+  font-style: italic;
+  letter-spacing: 0.2em;
+  text-align: center;
+  font-family: 'SF TransRobotics', 'Barlow Condensed', sans-serif;
+}
+
+.social-logos{
+  display: flex;
+  flex-wrap: wrap; /* Wrap elements in smaller screens */
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
 }

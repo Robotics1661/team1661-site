@@ -13,34 +13,84 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
-      rel="stylesheet"
-    />
     <title>Team 1661</title>
   </head>
   <body>
     <script>
-      function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        var areaHeight = window.innerHeight;
+      document.addEventListener("DOMContentLoaded", function () {
+        // Typing effect for the heading
+        const griffitronsH1 = document.querySelector(".intro-page h1");
+        typeText(griffitronsH1, "Griffitrons 1661", 150);
 
-        for (var i = 0; i < reveals.length; i++) {
-          var areaTop = reveals[i].getBoundingClientRect().top;
-          var areaBottom = areaTop + reveals[i].clientHeight;
+        // Event listener for scrolling to "ABOUT OUR TEAM" section
+        const whoWeAreButton = document.querySelector(".button a");
+        whoWeAreButton.addEventListener("click", scrollToAboutTeam);
 
-          if (areaTop < areaHeight && areaBottom >= 0) {
-            reveals[i].classList.add("active");
-          } else {
-            reveals[i].classList.remove("active");
+        // Event listener for revealing elements on scroll
+        window.addEventListener("scroll", reveal);
+
+        // Function for typing effect
+        function typeText(element, text, speed) {
+          let i = 0;
+          let isTyping = true;
+
+          const typingEffect = setInterval(function () {
+            if (isTyping) {
+              element.textContent += text.charAt(i);
+              i++;
+
+              if (i === text.length) {
+                isTyping = false;
+                setTimeout(function () {
+                  isTyping = true;
+                  element.textContent = "";
+                  i = 0;
+                }, 3000);
+              }
+            } else {
+              if (element.textContent.length > 0) {
+                element.textContent = element.textContent.slice(0, -1);
+              } else {
+                isTyping = true;
+                i = 0;
+              }
+            }
+          }, speed);
+        }
+
+        // Function to scroll to "ABOUT OUR TEAM" section
+        function scrollToAboutTeam(event) {
+          event.preventDefault();
+
+          const aboutSection = document.getElementById("about-sec");
+          aboutSection.scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Function to reveal elements on scroll
+        function reveal() {
+          const reveals = document.querySelectorAll(".reveal");
+          const areaHeight = window.innerHeight;
+
+          for (const reveal of reveals) {
+            const areaTop = reveal.getBoundingClientRect().top;
+            const areaBottom = areaTop + reveal.clientHeight;
+
+            if (areaTop < areaHeight && areaBottom >= 0) {
+              reveal.classList.add("active");
+            } else {
+              reveal.classList.remove("active");
+            }
           }
         }
-      }
+      });
 
-      // Trigger the reveal function on page load and scroll
-      window.addEventListener("load", reveal);
-      window.addEventListener("scroll", reveal);
+      // Rest of your existing script
     </script>
+    <!--USE FONT AWESOME FOR BRAND LOGOS - ACOUNT REQUIRED-->
+    <script
+      src="https://kit.fontawesome.com/c4d7755cf4.js"
+      crossorigin="anonymous"
+    ></script>
     <section class="nav-bar">
       <nav class="fixed-nav">
         <img
@@ -51,24 +101,21 @@
         <ul id="navList">
           <li><a href="#about-sec">About</a></li>
           <li><a href="#robots">Robots</a></li>
-          <li><a href="#awards">Awards</a></li>
-          <li><a href="#sponsors">Sponsors</a></li>
+          <a href="#awards"><li>Awards</li></a>
+          <li><a href="#socials">Socials</a></li>
         </ul>
       </nav>
     </section>
     <section class="intro-page">
       <div>
-        <!--PUT INTRO IN CODE FONT THAT TYPES AS YOU LOOK-->
-        <!--FONT: https://github.com/tonsky/FiraCode-->
-        <h1>Griffitrons</h1>
-        <h1>1661</h1>
+        <h1 class="intro-heading"></h1>
         <div class="button"><a href="#about-sec">Who We Are</a></div>
       </div>
     </section>
 
-    <section class="reveal" id="about-sec" id="about">
+    <section class="reveal" id="about-sec">
       <div>
-        <h2 class="about-our-team" id="about-us">ABOUT OUR TEAM</h2>
+        <h2 class="about-our-team">ABOUT OUR TEAM</h2>
         <hr />
         <div></div>
         <p class="about-writing">
@@ -101,8 +148,67 @@
     <section id="awards" class="reveal">
       <h1 class="our-awards">Our Awards</h1>
       <hr />
+      <div class="award-text">
+        <ul id="award-list">
+          <li>
+            <a class="award-year">2023</a> Dean's List Award Finalist - Sienna
+            Simantob
+          </li>
+          <li>
+            <a class="award-year">2017</a> Industrial Design Award Winner -
+            Hawaii Regional
+          </li>
+          <li><a class="award-year">2017</a> Hawaii Regional Finalist</li>
+          <li>
+            <a class="award-year">2015</a> Team Spirit Award - SCRRF Fall
+            Classic
+          </li>
+          <li>
+            <a class="award-year">2012</a> Team Spirit Award - SCRRF Fall
+            Classic
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="socials" class="reveal">
+      <h1 class="socials-head">Socials</h1>
+      <hr />
+      <div class="social-logos">
+        <a href="https://github.com/Robotics1661"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="32"
+            width="31"
+            viewBox="0 0 496 512"
+          >
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+            />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/griffitrons1661/?hl=en">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="32"
+            width="28"
+            viewBox="0 0 448 512"
+          >
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+            />
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@griffitron1661">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"
+            />
+          </svg>
+        </a>
+      </div>
     </section>
   </body>
 </html>
-
-<!--Color palette: https://colorhunt.co/palette/fbf9fafd0054a800382b2024-->
