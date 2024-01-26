@@ -239,8 +239,9 @@ svg {
 }
 
 #about-sec {
-  height: 100vh;
+  height: 80vh;
   font-family: 'Barlow Condensed', sans-serif;
+  margin-top: 20vh;
 }
 
 .about-our-team {
@@ -248,7 +249,8 @@ svg {
   font-style: italic;
   letter-spacing: 0.2em;
   text-align: center;
-  font-family: 'SF TransRobotics', 'Barlow Condensed', sans-serif;
+  font-family: 'sf_transroboticsoblique', sans-serif;
+  margin-top: 20vh;
 }
 
 /* For the center line */
@@ -269,6 +271,7 @@ hr {
   line-height: normal;
   font-size: 2vw; /* Responsive font size */
   margin: 0 auto;
+  margin-top: 5vh;
 }
 
 /* Previous robot section */
@@ -285,7 +288,8 @@ hr {
   font-style: italic;
   letter-spacing: 0.2em;
   text-align: center;
-  font-family: 'SF TransRobotics', 'Barlow Condensed', sans-serif;
+  font-family: 'sf_transroboticsoblique', sans-serif;
+  margin-top: 20vh;
 }
 
 .robot-photo {
@@ -329,7 +333,8 @@ hr {
   font-style: italic;
   letter-spacing: 0.15em; /* Responsive letter spacing */
   text-align: center;
-  font-family: 'SF TransRobotics', 'Barlow Condensed', sans-serif;
+  font-family: 'sf_transroboticsoblique', sans-serif;
+  margin-top: 20vh;
 }
 
 .award-text {
@@ -362,7 +367,7 @@ ul {
   font-style: italic;
   letter-spacing: 0.2em;
   text-align: center;
-  font-family: 'SF TransRobotics', 'Barlow Condensed', sans-serif;
+  font-family: 'sf_transroboticsoblique', sans-serif;
 }
 
 .social-logos{
