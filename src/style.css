@@ -254,6 +254,7 @@ svg {
 }
 
 /* For the center line */
+/*noinspection CssReplaceWithShorthandSafely*/
 hr {
   transform-origin: center;
   width: 7vw; /* Responsive line width */
@@ -270,8 +271,7 @@ hr {
   text-align: center;
   line-height: normal;
   font-size: 2vw; /* Responsive font size */
-  margin: 0 auto;
-  margin-top: 5vh;
+  margin: 5vh auto 0;
 }
 
 /* Previous robot section */
@@ -328,13 +328,12 @@ hr {
 }
 
 .our-awards {
-  margin-top: 5vh; /* Responsive margin top */
+  margin-top: 20vh; /* Responsive margin top */
   font-size: 5vw; /* Responsive font size */
   font-style: italic;
   letter-spacing: 0.15em; /* Responsive letter spacing */
   text-align: center;
   font-family: 'sf_transroboticsoblique', sans-serif;
-  margin-top: 20vh;
 }
 
 .award-text {
@@ -376,6 +375,5 @@ ul {
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
-  margin: 0 auto;
-  margin-top: 50px;
+  margin: 50px auto 0;
 }
