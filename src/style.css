@@ -4,6 +4,16 @@
   padding: 0;
 }
 
+/* Adds custom Robotic font */
+@font-face {
+  font-family: 'sf_transroboticsoblique';
+  src: url('webfontkit-20240125-184607/sf-transrobotics.oblique-webfont.woff2') format('woff2'),
+       url('webfontkit-20240125-184607/sf-transrobotics.oblique-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 /* Applying smooth scroll behavior to the entire page */
 html {
   scroll-behavior: smooth;
@@ -17,7 +27,7 @@ body {
 
 /* Styling the navigation bar */
 .fixed-nav {
-  position: fixed;
+  position: fixed; /* Ensuring the navigation bar stays fixed */
   top: 0;
   left: 0;
   width: 100%;
@@ -31,7 +41,7 @@ body {
   color: black;
   font-size: 40px;
   padding-top: 20px; /* Adjusting padding to prevent content from being hidden */
-  font-family: 'SF TransRobotics', 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 /* Styling the logo */
@@ -81,7 +91,7 @@ nav {
 .intro-heading {
   font-size: 5vw; /* Responsive font size */
   white-space: nowrap;
-  font-family: 'SF TransRobotics', sans-serif;
+  font-family: 'sf_transroboticsoblique', sans-serif;
 }
 
 .button {
@@ -273,7 +283,7 @@ hr {
 }
 
 #awards {
-  height: 100vh;
+  height: 150vh;
 }
 
 .our-awards {
