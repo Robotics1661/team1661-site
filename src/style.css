@@ -23,6 +23,9 @@ html {
 body {
   font-family: 'Rubik', sans-serif;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20vh;
 }
 
 /* Styling the navigation bar */
@@ -37,10 +40,8 @@ body {
 
 /* Styling the navigation bar content */
 .nav-bar {
-  height: 10vh;
   color: black;
   font-size: 40px;
-  padding-top: 20px; /* Adjusting padding to prevent content from being hidden */
   font-family: 'Barlow Condensed', sans-serif;
 }
 
@@ -86,6 +87,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 10vh;
 }
 
 .intro-heading {
@@ -97,7 +99,9 @@ nav {
 }
 
 .scroll-target {
-  scroll-margin-top: 10.5vh;
+/*  background-color: red;
+  height: 80px;*/
+  scroll-margin-top: 100px;
 }
 
 .button {
@@ -109,7 +113,7 @@ nav {
   border-radius: 30px;
   text-align: center;
   align-items: center;
-  padding-top: 7px;
+  padding: 7px 0;
   font-size: 2vw; /* Responsive font size */
   font-weight: 300;
   transition: 0.4s;
@@ -210,6 +214,12 @@ svg {
   opacity: 1;
 }
 
+.reveal.scroll-fix {
+  transform: translateY(0);
+  transition-property: transform;
+  transition-duration: 0s;
+}
+
 .reveal.active.secondary-inactive {
   transform: translateY(0);
   opacity: 0;
@@ -239,7 +249,6 @@ svg {
 }
 
 #about-sec {
-  height: 80vh;
   font-family: 'Barlow Condensed', sans-serif;
   margin-top: 20vh;
 }
@@ -250,7 +259,6 @@ svg {
   letter-spacing: 0.2em;
   text-align: center;
   font-family: 'sf_transroboticsoblique', sans-serif;
-  margin-top: 20vh;
 }
 
 /* For the center line */
@@ -277,10 +285,9 @@ hr {
 /* Previous robot section */
 
 #robots {
-  height: 100vh;
   font-family: 'Barlow Condensed', sans-serif;
   text-align: center;
-  margin: 0 auto;
+  margin: 20vh auto 0;
 }
 
 .robot-head {
@@ -289,7 +296,25 @@ hr {
   letter-spacing: 0.2em;
   text-align: center;
   font-family: 'sf_transroboticsoblique', sans-serif;
-  margin-top: 20vh;
+}
+
+.robot-captioned-photos {
+  display: flex;
+  flex-wrap: wrap; /* Wrap elements in smaller screens */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.robot-captioned-photo {
+  margin-top: 1vw; /* Responsive margin */
+  margin-bottom: 1vw; /* Responsive margin */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .robot-photo {
@@ -299,6 +324,7 @@ hr {
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
   transition: .4s;
   margin: 0 2vw; /* Responsive margin */
+  display: flex;
 }
 
 .robot-photo:hover {
@@ -306,9 +332,6 @@ hr {
 }
 
 .robot-text {
-  display: flex;
-  flex-wrap: wrap; /* Wrap elements in smaller screens */
-  justify-content: space-evenly;
   align-items: center;
   text-align: center;
   margin: 0 auto;
@@ -323,12 +346,13 @@ hr {
   font-size: 2vw; /* Responsive font size */
 }
 
+/* Awards section */
+
 #awards {
-  height: 150vh;
+  margin-top: 20vh; /* Responsive margin top */
 }
 
 .our-awards {
-  margin-top: 20vh; /* Responsive margin top */
   font-size: 5vw; /* Responsive font size */
   font-style: italic;
   letter-spacing: 0.15em; /* Responsive letter spacing */
@@ -356,6 +380,8 @@ ul {
   font-weight: bold;
   font-size: 5vw; /* Responsive font size */
 }
+
+/* Socials section */
 
 #socials{
   height: 40vh;

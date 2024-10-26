@@ -23,7 +23,7 @@
         typeText(griffitronsH1, "Griffitrons 1661", 150);
 
         // Event listener for scrolling to "ABOUT OUR TEAM" section
-        const whoWeAreButton = document.querySelector(".button a");
+        const whoWeAreButton = document.querySelector("a.button");
         whoWeAreButton.addEventListener("click", scrollToAboutTeam);
 
         // Event listener for revealing elements on scroll
@@ -70,6 +70,40 @@
           });
         }
 
+        for (const scrollTargetButton of document.querySelectorAll(".scroll-targeting-button")) {
+          scrollTargetButton.addEventListener("click", (event) => {
+            const target = scrollTargetButton.getAttribute("href");
+            console.log(`[pre] Scrolling to ${target}`);
+
+            if (target.match("#.+-target") && document.querySelector(target+".scroll-target")) {
+              const sectionName = target.substring(1, target.length - 7);
+              const section = document.querySelector(`#${sectionName}`);
+
+              section.classList.add("scroll-fix");
+            }
+
+            event.preventDefault();
+
+            setTimeout(() => {
+              console.log(`[post] Setting hash to ${target}`);
+              location.hash = target;
+            }, 0);
+          });
+        }
+
+        // check that there's actually a scroll target, and disable translation animations
+        if (location.hash && location.hash.match("#.+-target") && document.querySelector(location.hash+".scroll-target")) {
+          const sectionName = location.hash.substring(1, location.hash.length - 7);
+          const section = document.querySelector(`#${sectionName}`);
+          console.log(`[post] Loaded with hash, fixing scroll for ${sectionName}`);
+
+          section.classList.add("scroll-fix");
+        }
+
+        /*for (const scrollTarget of document.querySelectorAll(".scroll-target")) {
+          scrollTarget.textContent = `scroll target ${scrollTarget.id}`;
+        }*/
+
         // Function to reveal elements on scroll
         function reveal() {
           const reveals = document.querySelectorAll(".reveal");
@@ -89,33 +123,33 @@
         }
       });
     </script>
-    <!--USE FONT AWESOME FOR BRAND LOGOS - ACOUNT REQUIRED-->
+    <!--USE FONT AWESOME FOR BRAND LOGOS - ACCOUNT REQUIRED-->
     <script
       src="https://kit.fontawesome.com/c4d7755cf4.js"
       crossorigin="anonymous"
     ></script>
-    <section class="nav-bar">
-      <nav class="fixed-nav">
-        <img
-          class="logo"
-          src="src/images/1661-logo-black.png"
-          alt="Team 1661 Logo"
-        />
-        <ul id="navList">
-          <li><a href="#about-sec-target">About</a></li>
-          <li><a href="#robots-target">Robots</a></li>
-          <li><a href="#awards-target">Awards</a></li>
-          <li><a href="#socials-target">Socials</a></li>
-        </ul>
-      </nav>
-    </section>
+
+    <nav class="fixed-nav nav-bar">
+      <img
+        class="logo"
+        src="src/images/1661-logo-black.png"
+        alt="Team 1661 Logo"
+      />
+      <ul id="navList">
+        <li><a href="#about-sec-target" class="scroll-targeting-button">About</a></li>
+        <li><a href="#robots-target" class="scroll-targeting-button">Robots</a></li>
+        <li><a href="#awards-target" class="scroll-targeting-button">Awards</a></li>
+        <li><a href="#socials-target" class="scroll-targeting-button">Socials</a></li>
+      </ul>
+    </nav>
+
     <section class="intro-page">
       <h1 class="intro-heading"></h1>
-      <div class="button"><a href="#about-sec-target">Who We Are</a></div>
+      <a href="#about-sec-target" class="button scroll-targeting-button">Who We Are</a>
     </section>
 
-    <div id="about-sec-target" class="scroll-target"></div>
     <section class="reveal" id="about-sec">
+      <div id="about-sec-target" class="scroll-target"></div>
       <div>
         <h2 class="about-our-team">ABOUT OUR TEAM</h2>
         <hr />
@@ -131,26 +165,37 @@
       </div>
     </section>
 
-    <div id="robots-target" class="scroll-target"></div>
     <section id="robots" class="reveal">
+      <div id="robots-target" class="scroll-target"></div>
       <h3 class="robot-head">Our Previous Robots:</h3>
       <hr />
-      <img class="robot-photo" src="src/images/2023-bot.png"  alt="2023 robot, Nova, picking up a cone"/>
-      <img class="robot-photo" src="src/images/2022-bot.jpg" alt="2022 robot, Eve, intaking a ball" />
-      <div class="robot-text">
-        <div class="nova-text">
-          <h2>2023</h2>
-          <h3>Nova</h3>
+      <div class="robot-captioned-photos">
+        <div class="robot-captioned-photo">
+          <img class="robot-photo" src="src/images/2024-bot.jpg" alt="2024 robot, Eclipse, in the pit"/>
+          <div class="robot-text">
+            <h2>2024</h2>
+            <h3>Eclipse</h3>
+          </div>
         </div>
-        <div class="eve-text">
-          <h2>2022</h2>
-          <h3>Eve</h3>
+        <div class="robot-captioned-photo">
+          <img class="robot-photo" src="src/images/2023-bot.png" alt="2023 robot, Nova, picking up a cone"/>
+          <div class="robot-text">
+            <h2>2023</h2>
+            <h3>Nova</h3>
+          </div>
+        </div>
+        <div class="robot-captioned-photo">
+          <img class="robot-photo" src="src/images/2022-bot.jpg" alt="2022 robot, Eve, intaking a ball"/>
+          <div class="robot-text">
+            <h2>2022</h2>
+            <h3>Eve</h3>
+          </div>
         </div>
       </div>
     </section>
 
-    <div id="awards-target" class="scroll-target"></div>
     <section id="awards" class="reveal">
+      <div id="awards-target" class="scroll-target"></div>
       <h1 class="our-awards">Our Awards</h1>
       <hr />
       <div class="award-text">
@@ -188,8 +233,8 @@
       </div>
     </section>
 
-    <div id="socials-target" class="scroll-target"></div>
     <section id="socials" class="reveal reveal-stationary">
+      <div id="socials-target" class="scroll-target"></div>
       <h1 class="socials-head">Socials</h1>
       <hr />
       <div class="social-logos">
