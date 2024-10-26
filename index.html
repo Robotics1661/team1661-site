@@ -18,6 +18,16 @@
   <body>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Helper function to disable the translation animation on sections
+        function scrollFix(element) {
+          element.classList.add("scroll-fix");
+          element.classList.add("sf-instant");
+
+          setTimeout(function() {
+            element.classList.remove("sf-instant");
+          }, 0);
+        }
+
         // Typing effect for the heading
         const griffitronsH1 = document.querySelector(".intro-page h1");
         typeText(griffitronsH1, "Griffitrons 1661", 150);
@@ -27,7 +37,9 @@
         whoWeAreButton.addEventListener("click", scrollToAboutTeam);
 
         // Event listener for revealing elements on scroll
-        window.addEventListener("scroll", reveal);
+        window.addEventListener("scroll", function() {
+          reveal(false);
+        });
         // Event listener for navbar shadow
         window.addEventListener("scroll", navbarShadow);
 
@@ -81,7 +93,11 @@
               const sectionName = target.substring(1, target.length - 7);
               const section = document.querySelector(`#${sectionName}`);
 
-              section.classList.add("scroll-fix");
+              scrollFix(section);
+
+              if (sectionName === "socials") {
+                scrollFix(document.querySelector("#awards"));
+              }
             }
 
             event.preventDefault();
@@ -99,7 +115,7 @@
           const section = document.querySelector(`#${sectionName}`);
           console.log(`[post] Loaded with hash, fixing scroll for ${sectionName}`);
 
-          section.classList.add("scroll-fix");
+          scrollFix(section);
         }
 
         /*for (const scrollTarget of document.querySelectorAll(".scroll-target")) {
@@ -107,7 +123,7 @@
         }*/
 
         // Function to reveal elements on scroll
-        function reveal() {
+        function reveal(instant) {
           const reveals = document.querySelectorAll(".reveal");
           const areaHeight = window.innerHeight;
 
@@ -121,8 +137,14 @@
             } else {
               reveal.classList.add("secondary-inactive");
             }
+
+            if (instant && areaTop < areaHeight) {
+              scrollFix(reveal);
+            }
           }
         }
+
+        reveal(true);
 
         // Function to add shadow to navbar on scroll
         function navbarShadow() {
@@ -132,6 +154,7 @@
             navBar.classList.add("nav-shadow");
           } else {
             navBar.classList.remove("nav-shadow");
+            location.hash = "";
           }
         }
       });

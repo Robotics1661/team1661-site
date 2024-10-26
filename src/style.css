@@ -309,6 +309,9 @@ svg {
 
 .reveal.scroll-fix {
   transform: translateY(0);
+}
+
+.reveal.scroll-fix.sf-instant {
   transition-property: transform;
   transition-duration: 0s;
 }
