@@ -41,6 +41,40 @@ body {
   transition-duration: 100ms;
 }
 
+.nav-streak {
+  background: #aa0000;
+  position: absolute;
+  height: 100%;
+  z-index: -500;
+}
+
+.nav-streak.a {
+  width: 13%;
+
+  --p: 20%; /* control the shape (can be percentage) */
+  clip-path: polygon(0 0, 100% 0, calc(100% - var(--p)) 100%, 0 100%);
+}
+
+.nav-streak.b {
+  background: #d40000;
+  width: 16%;
+
+  z-index: -510;
+
+  --p: 25%;
+  clip-path: polygon(0 0, 100% 0, calc(100% - var(--p)) 100%, 0 100%);
+}
+
+.nav-streak.c {
+  background: #ff0000;
+  width: 16%;
+
+  z-index: -520;
+
+  --p: 5%;
+  clip-path: polygon(0 0,calc(100% - var(--p)) 0,100% 100%,0 100%);
+}
+
 .nav-shadow {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
@@ -212,6 +246,33 @@ svg {
 
   .fixed-nav {
     position: fixed;
+  }
+
+  .nav-streak.a {
+    width: 19.5%;
+
+    --p: 20%; /* control the shape (can be percentage) */
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--p)) 100%, 0 100%);
+  }
+
+  .nav-streak.b {
+    background: #d40000;
+    width: 24%;
+
+    z-index: -510;
+
+    --p: 25%;
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--p)) 100%, 0 100%);
+  }
+
+  .nav-streak.c {
+    background: #ff0000;
+    width: 24%;
+
+    z-index: -520;
+
+    --p: 5%;
+    clip-path: polygon(0 0,calc(100% - var(--p)) 0,100% 100%,0 100%);
   }
 
   svg {
