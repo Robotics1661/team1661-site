@@ -231,11 +231,16 @@ svg {
   }
 
   .robot-text h2 {
-    font-size: 5vw;
+    font-size: 8vw;
   }
 
   .robot-text h3 {
-    font-size: 4vw;
+    font-size: 7vw;
+  }
+
+  .robot-text a {
+    color: black;
+    font-size: 6vw;
   }
 
   .our-awards {
@@ -451,6 +456,20 @@ hr {
 
 .robot-text h3 {
   font-size: 2vw; /* Responsive font size */
+}
+
+.robot-text a {
+  color: black;
+  font-size: 1.5vw;
+}
+
+.robot-text a:hover {
+  color: #4078c0;
+  text-decoration-line: underline;
+  text-decoration-thickness: .05vw;
+  text-decoration-color: #2a578c;
+  text-decoration-style: solid;
+  transition: .3s;
 }
 
 /* Awards section */
