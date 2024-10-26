@@ -103,6 +103,8 @@ nav {
 #navList {
   list-style: none; /* Removing default list styles */
   display: flex;
+  margin-left: 30px;
+  margin-bottom: 15px;
 }
 
 #navList li {
@@ -114,9 +116,21 @@ nav {
   color: black;
 }
 
+.nav-list-bg {
+  right: 0;
+  width: fit-content;
+  height: min-content;
+  z-index: -600;
+
+  background: #d40000;
+
+  --p: 5%; /* control the shape (can be percentage) */
+  clip-path: polygon(0 0,100% 0,100% 100%,var(--p) 100%);
+}
+
 /* Ensuring smooth transition on hover */
 #navList a:hover {
-  color: #ff0000; /* Adjusting color on hover */
+  color: #ffffff; /* Adjusting color on hover */
   transition: .3s;
 }
 
