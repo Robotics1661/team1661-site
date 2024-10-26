@@ -28,6 +28,8 @@
 
         // Event listener for revealing elements on scroll
         window.addEventListener("scroll", reveal);
+        // Event listener for navbar shadow
+        window.addEventListener("scroll", navbarShadow);
 
         // Function for typing effect
         function typeText(element, text, speed) {
@@ -119,6 +121,17 @@
             } else {
               reveal.classList.add("secondary-inactive");
             }
+          }
+        }
+
+        // Function to add shadow to navbar on scroll
+        function navbarShadow() {
+          const navBar = document.querySelector(".nav-bar");
+
+          if (scrollY > 0) {
+            navBar.classList.add("nav-shadow");
+          } else {
+            navBar.classList.remove("nav-shadow");
           }
         }
       });
