@@ -107,6 +107,7 @@ nav {
 
 #navList li {
   margin-right: 20px; /* Adjusting spacing between list items */
+  font-size: 3vw;
 }
 
 #navList a {
@@ -123,12 +124,12 @@ nav {
 .intro-page {
   text-align: center;
   font-family: 'Barlow Condensed', sans-serif;
-  height: 100vh; /* Set height to fill the viewport */
+  height: 80vh; /* Set height to fill the viewport */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 20vh;
 }
 
 .intro-heading {
@@ -195,8 +196,17 @@ svg {
     width: 15%;
   }
 
+  #navList li {
+    margin-right: 20px; /* Adjusting spacing between list items */
+    font-size: 5vw;
+  }
+
   .intro-heading {
     font-size: 8vw;
+  }
+
+  .intro-page {
+    margin-top: 10vh;
   }
 
   .button {
