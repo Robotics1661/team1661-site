@@ -169,6 +169,16 @@ svg {
     width: 40vw;
   }
 
+  .robot-photo.wide:hover {
+    height: 40vw;
+    width: calc(4/3 * 40vw);
+  }
+
+  .robot-photo.wider:hover {
+    height: 40vw;
+    width: calc(5/3 * 40vw);
+  }
+
   .robot-text h2 {
     font-size: 5vw;
   }
@@ -325,6 +335,17 @@ hr {
   transition: .4s;
   margin: 0 2vw; /* Responsive margin */
   display: flex;
+  object-fit: cover;
+}
+
+.robot-photo.wide:hover {
+  height: 30vw; /* Responsive height */
+  width: calc(4/3 * 30vw); /* Responsive width */
+}
+
+.robot-photo.wider:hover {
+  height: 30vw; /* Responsive height */
+  width: calc(5/3 * 30vw); /* Responsive width */
 }
 
 .robot-photo:hover {
@@ -379,6 +400,24 @@ ul {
   color: #ff0000;
   font-weight: bold;
   font-size: 5vw; /* Responsive font size */
+  vertical-align: baseline;
+  text-align: left;
+  padding-right: 2vw;
+}
+
+.award-desc {
+  vertical-align: baseline;
+  text-align: right;
+}
+
+table.award-table {
+  width: 75vw; /* Responsive width */
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+table.award-table tr {
+  border-bottom: 1px dotted black;
 }
 
 /* Socials section */
