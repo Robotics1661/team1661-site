@@ -12,7 +12,7 @@
     # This sample publishes the directory located at the absolute
     # path "root/project/build-output"
 
-    publish = "src/"
+    publish = "/"
 
     # Default build command.
     # command = "echo 'default context'"
