@@ -91,6 +91,9 @@ body {
   width: 10%;
   height: auto; /* Allowing proportional scaling */
   margin-left: 10px;
+  color: white;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 50px;
 }
 
 /* Styling the navigation list */
@@ -194,6 +197,7 @@ svg {
 
   .logo {
     width: 15%;
+    font-size: 4vw;
   }
 
   #navList li {
