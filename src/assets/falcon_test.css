@@ -1,0 +1,90 @@
+.component-diagram-outer {
+    background: #ffa4a4;
+
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.component-diagram-title {
+    position: absolute;
+    width: 50vw;
+    background: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 6vw;
+    border-color: black;
+    border-width: 1px;
+    border-right-style: solid;
+    border-bottom-style: solid;
+
+    box-shadow: 2px 4px 4px 0 rgba(0,0,0,0.75);
+}
+
+.component-diagram-title-padding {
+    height: 9vw;
+}
+
+.component-diagram-content {
+    background: #e5e5ff;
+
+    /*height: 70vh;*/
+
+    display: inline-grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 6fr 1fr 7fr;
+    grid-gap: 3px;
+}
+
+.component {
+    display: flex;
+    /*justify-content: center;*/
+    /*justify-content: right;*/
+    align-items: center;
+
+    background: #79b19c;
+    border-color: greenyellow;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.component.primary {
+    justify-content: right;
+}
+
+.component.center {
+    justify-content: center;
+}
+
+.component.secondary {
+    justify-content: left;
+}
+
+.r0 {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.r1 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.r2 {
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.primary {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.center {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.secondary {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
