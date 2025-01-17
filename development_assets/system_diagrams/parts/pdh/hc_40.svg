@@ -21,8 +21,8 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="2.4014013"
-     inkscape:cx="144.91539"
-     inkscape:cy="43.724471"
+     inkscape:cx="141.79221"
+     inkscape:cy="43.72447"
      inkscape:window-width="1920"
      inkscape:window-height="1020"
      inkscape:window-x="0"
@@ -69,7 +69,7 @@
      style="fill:none;fill-opacity:.15503;stroke:#a9a9f7;stroke-width:1.301;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:5.204,10.408;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke" />
   <path
      id="polyline2575"
-     d="M22.681 29.73H-.001"
+     d="M22.681 29.73H0"
      style="fill:none;stroke:#231f20;stroke-linecap:butt;stroke-linejoin:round"
      class="cls-output-wire" />
   <rect
