@@ -146,7 +146,7 @@ nav {
 .scroll-target {
 /*  background-color: red;
   height: 80px;*/
-  scroll-margin-top: 100px;
+  scroll-margin-top: 120px;
 }
 
 .button {
@@ -257,6 +257,18 @@ svg {
 
   .award-year {
     font-size: 8vw;
+  }
+
+  .sponsors-head {
+    font-size: 8vw;
+  }
+
+  .sponsors-text h2 {
+    font-size: 8vw;
+  }
+
+  .sponsors-text h3 {
+    font-size: 7vw;
   }
 
   .socials-head {
@@ -527,6 +539,90 @@ table.award-table {
 
 table.award-table tr {
   border-bottom: 1px dotted black;
+}
+
+/* Sponsors section */
+
+#sponsors {
+  font-family: 'Barlow Condensed', sans-serif;
+  text-align: center;
+  margin: 20vh auto 0;
+}
+
+.sponsors-head {
+  font-size: 5vw; /* Responsive font size */
+  font-style: italic;
+  letter-spacing: 0.2em;
+  text-align: center;
+  font-family: 'sf_transroboticsoblique', sans-serif;
+}
+
+.sponsors-captioned-items {
+  display: flex;
+  flex-wrap: wrap; /* Wrap elements in smaller screens */
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.sponsors-captioned-item {
+  margin-top: 1vw; /* Responsive margin */
+  margin-bottom: 1vw; /* Responsive margin */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 2vw;
+}
+
+.sponsors-photo {
+  height: 6vw;
+  width: 10vw;
+  margin: 0 2vw;
+  display: flex;
+  object-fit: contain;
+  align-self: center;
+}
+
+.sponsors-captioned-items :last-child.sponsors-captioned-item {
+  margin-right: revert;
+}
+
+.sponsors-text {
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.sponsors-text h2 {
+  font-size: 3vw;
+  margin-bottom: 0.75vw;
+}
+
+.sponsors-text h3 {
+  font-size: 2vw;
+}
+
+.sponsors-text a {
+  color: black;
+  font-size: 1.5vw;
+  text-decoration-line: underline;
+}
+
+.sponsors-text a:hover {
+  color: #4078c0;
+  text-decoration-line: underline;
+  text-decoration-thickness: .05vw;
+  text-decoration-color: #2a578c;
+  text-decoration-style: solid;
+  transition: .3s;
+}
+
+.sponsors-text p {
+  margin-top: 0.25vw;
+  font-size: 1vw;
 }
 
 /* Socials section */
