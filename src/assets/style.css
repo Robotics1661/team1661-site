@@ -21,7 +21,7 @@ html {
 
 /* Setting font and removing default body margin */
 body {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -83,7 +83,6 @@ body {
 .nav-bar {
   color: black;
   font-size: 40px;
-  font-family: 'Barlow Condensed', sans-serif;
 }
 
 /* Styling the logo */
@@ -92,7 +91,6 @@ body {
   height: auto; /* Allowing proportional scaling */
   margin-left: 10px;
   color: white;
-  font-family: 'Barlow Condensed', sans-serif;
   font-size: 50px;
 }
 
@@ -126,7 +124,6 @@ nav {
 
 .intro-page {
   text-align: center;
-  font-family: 'Barlow Condensed', sans-serif;
   height: 80vh; /* Set height to fill the viewport */
   display: flex;
   flex-direction: column;
@@ -172,6 +169,7 @@ a {
 }
 
 .button:hover {
+  color: black;
   background-color: #bebebe;
 }
 
@@ -366,7 +364,6 @@ svg {
 }
 
 #about-sec {
-  font-family: 'Barlow Condensed', sans-serif;
   margin-top: 20vh;
 }
 
@@ -402,7 +399,6 @@ hr {
 /* Previous robot section */
 
 #robots {
-  font-family: 'Barlow Condensed', sans-serif;
   text-align: center;
   margin: 20vh auto 0;
 }
@@ -509,7 +505,6 @@ hr {
   align-items: center;
   text-align: center;
   margin: 0 auto;
-  font-family: 'Barlow Condensed', sans-serif;
   font-size: 3vw; /* Responsive font size */
 }
 
@@ -544,7 +539,6 @@ table.award-table tr {
 /* Sponsors section */
 
 #sponsors {
-  font-family: 'Barlow Condensed', sans-serif;
   text-align: center;
   margin: 20vh auto 0;
 }
