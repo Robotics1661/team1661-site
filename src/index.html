@@ -34,7 +34,13 @@
         }
 
         // Typing effect for the heading
-        const griffitronsH1 = document.querySelector(".intro-page h1");
+        const griffitronsH1 = document.createElement("h1", {
+          classList: ["intro-heading"],
+        })
+        const introPage = document.querySelector(".intro-page");
+        const introPage$noscript = introPage.querySelector("noscript");
+        introPage.insertBefore(griffitronsH1, introPage$noscript);
+        introPage$noscript.remove();
         typeText(griffitronsH1, "Griffitrons 1661", 150);
 
         // Event listener for scrolling to "ABOUT OUR TEAM" section
@@ -184,7 +190,11 @@
     </nav>
 
     <section class="intro-page">
-      <h1 class="intro-heading"></h1>
+      <!--<h1 class="intro-heading"></h1>-->
+      <!--the above will be automatically inserted by JS-->
+      <noscript>
+        <h1 class="intro-heading">Griffitrons 1661</h1>
+      </noscript>
       <a href="#about-sec-target" class="button scroll-targeting-button">Who We Are</a>
     </section>
 
@@ -207,30 +217,30 @@
 
     <section id="robots" class="reveal">
       <div id="robots-target" class="scroll-target"></div>
-      <h3 class="robot-head">Our Previous Robots:</h3>
+      <h2 class="robot-head">Our Previous Robots:</h2>
       <hr />
       <div class="robot-captioned-photos">
         <div class="robot-captioned-photo">
           <img class="robot-photo wider" src="assets/images/2024-bot.jpg" alt="2024 robot, Eclipse, in the pit"/>
           <div class="robot-text">
-            <h2>2024</h2>
-            <h3>Eclipse</h3>
+            <h3>2024</h3>
+            <h4>Eclipse</h4>
             <a href="https://github.com/Robotics1661/1661-RobotCode-2024"><span class="fa-brands fa-github fa-sm"></span> Code</a>
           </div>
         </div>
         <div class="robot-captioned-photo">
           <img class="robot-photo wide" src="assets/images/2023-bot.png" alt="2023 robot, Nova, picking up a cone"/>
           <div class="robot-text">
-            <h2>2023</h2>
-            <h3>Nova</h3>
+            <h3>2023</h3>
+            <h4>Nova</h4>
             <a href="https://github.com/Robotics1661/1661-RobotCode-2023"><span class="fa-brands fa-github fa-sm"></span> Code</a>
           </div>
         </div>
         <div class="robot-captioned-photo">
           <img class="robot-photo" src="assets/images/2022-bot.jpg" alt="2022 robot, Eve, intaking a ball"/>
           <div class="robot-text">
-            <h2>2022</h2>
-            <h3>Eve</h3>
+            <h3>2022</h3>
+            <h4>Eve</h4>
             <a href="https://github.com/Robotics1661/1661-Code-2022"><span class="fa-brands fa-github fa-sm"></span> Code</a>
           </div>
         </div>
@@ -239,7 +249,7 @@
 
     <section id="awards" class="reveal">
       <div id="awards-target" class="scroll-target"></div>
-      <h1 class="our-awards">Our Awards</h1>
+      <h2 class="our-awards">Our Awards</h2>
       <hr />
       <div class="award-text">
         <table class="award-table">
@@ -260,12 +270,8 @@
 
     <section id="sponsors" class="reveal reveal-stationary">
       <div id="sponsors-target" class="scroll-target"></div>
-      <h1 class="sponsors-head">Sponsors</h1>
+      <h2 class="sponsors-head">Sponsors</h2>
       <hr />
-<!--
-SendCutSend, CNCmadness and Fabworks
-(for fabworks we have a promo code "FRC1661" so add that and we also need to add the link "www.fabworks.com" to it (I'll do an insta story too)).
--->
       <div class="sponsors-captioned-items">
         <div class="sponsors-captioned-item">
           <img class="sponsors-photo" src="assets/images/sponsor-logos/scs-logo.svg" alt="SendCutSend"/>
@@ -291,7 +297,7 @@ SendCutSend, CNCmadness and Fabworks
 
     <section id="socials" class="reveal reveal-stationary">
       <div id="socials-target" class="scroll-target"></div>
-      <h1 class="socials-head">Socials</h1>
+      <h2 class="socials-head">Socials</h2>
       <hr />
       <div class="social-logos">
         <a href="https://github.com/Robotics1661" target="_blank"
