@@ -8,7 +8,7 @@
 @font-face {
   font-family: 'sf_transroboticsoblique';
   src: url('webfontkit-20240125-184607/sf-transrobotics.oblique-webfont.woff2') format('woff2'),
-       url('webfontkit-20240125-184607/sf-transrobotics.oblique-webfont.woff') format('woff');
+  url('webfontkit-20240125-184607/sf-transrobotics.oblique-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
@@ -88,9 +88,13 @@ body {
 .logo {
   width: 10%;
   height: auto; /* Allowing proportional scaling */
+  aspect-ratio: calc(2032 / 1242);
+  object-fit: contain;
   margin-left: 10px;
   color: white;
   font-size: 2.75vw;
+  text-align: center;
+  align-content: center;
 }
 
 /* Styling the navigation list */
@@ -140,8 +144,6 @@ nav {
 }
 
 .scroll-target {
-/*  background-color: red;
-  height: 80px;*/
   scroll-margin-top: 120px;
 }
 
