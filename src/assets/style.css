@@ -82,7 +82,6 @@ body {
 /* Styling the navigation bar content */
 .nav-bar {
   color: black;
-  font-size: 40px;
 }
 
 /* Styling the logo */
@@ -91,7 +90,7 @@ body {
   height: auto; /* Allowing proportional scaling */
   margin-left: 10px;
   color: white;
-  font-size: 50px;
+  font-size: 2.75vw;
 }
 
 /* Styling the navigation list */
