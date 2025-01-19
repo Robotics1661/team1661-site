@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Mobile devices will integrate cleanly with the logo-->
+    <meta name="theme-color" content="#aa0000" />
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="icon" href="assets/images/1661-logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -115,6 +117,7 @@
 
             setTimeout(() => {
               console.log(`[post] Setting hash to ${target}`);
+              location.hash = "";
               location.hash = target;
             }, 0);
           });
@@ -159,35 +162,65 @@
 
         // Function to add shadow to navbar on scroll
         function navbarShadow() {
-          const navBar = document.querySelector(".nav-bar");
+          const navBars = document.querySelectorAll(".nav-bar");
 
-          if (scrollY > 0) {
-            navBar.classList.add("nav-shadow");
-          } else {
-            navBar.classList.remove("nav-shadow");
+          navBars.forEach(function (navBar) {
+            if (scrollY > 0) {
+              navBar.classList.add("nav-shadow");
+            } else {
+              navBar.classList.remove("nav-shadow");
+            }
+          });
+
+          if (scrollY <= 0) {
             location.hash = "";
           }
         }
       });
     </script>
 
-    <nav class="fixed-nav nav-bar">
-      <div class="nav-streak a"></div>
-      <div class="nav-streak b"></div>
-      <div class="nav-streak c"></div>
-      <img
-        class="logo"
-        src="assets/images/1661-logo-white.png"
-        alt="Team 1661"
-      />
-      <ul id="navList">
-        <li><a href="#about-sec-target" class="scroll-targeting-button">About</a></li>
-        <li><a href="#robots-target" class="scroll-targeting-button">Robots</a></li>
-        <li><a href="#awards-target" class="scroll-targeting-button">Awards</a></li>
-        <li><a href="#sponsors-target" class="scroll-targeting-button">Sponsors</a></li>
-        <li><a href="#socials-target" class="scroll-targeting-button">Socials</a></li>
-      </ul>
-    </nav>
+    <div class="nav-desktop">
+      <nav class="nav-bar">
+        <div class="logo-area">
+          <div class="nav-streak a"></div>
+          <div class="nav-streak b"></div>
+          <div class="nav-streak c"></div>
+          <img
+            class="logo"
+            src="assets/images/1661-logo-white.png"
+            alt="Team 1661"
+          />
+        </div>
+        <ul class="nav-list">
+          <li><a href="#about-sec-target" class="scroll-targeting-button">About</a></li>
+          <li><a href="#robots-target" class="scroll-targeting-button">Robots</a></li>
+          <li><a href="#awards-target" class="scroll-targeting-button">Awards</a></li>
+          <li><a href="#sponsors-target" class="scroll-targeting-button">Sponsors</a></li>
+          <li><a href="#socials-target" class="scroll-targeting-button">Socials</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="nav-mobile">
+      <nav class="nav-bar">
+        <div class="logo-area">
+          <div class="nav-streak a"></div>
+          <div class="nav-streak b"></div>
+          <div class="nav-streak c"></div>
+          <img
+            class="logo"
+            src="assets/images/1661-logo-white.png"
+            alt="Team 1661"
+          />
+        </div>
+        <ul class="nav-list">
+          <li><a href="#about-sec-target" class="scroll-targeting-button">About</a></li>
+          <li><a href="#robots-target" class="scroll-targeting-button">Robots</a></li>
+          <li><a href="#awards-target" class="scroll-targeting-button">Awards</a></li>
+          <li><a href="#sponsors-target" class="scroll-targeting-button">Sponsors</a></li>
+          <li><a href="#socials-target" class="scroll-targeting-button">Socials</a></li>
+        </ul>
+      </nav>
+    </div>
 
     <section class="intro-page">
       <!--<h1 class="intro-heading"></h1>-->
@@ -205,8 +238,8 @@
         <hr />
 
         <p class="about-writing">
-          Team 1661 is a FIRST Robotics Competition team located at the Buckley
-          School in Sherman Oaks, CA. We've been competing in FRC since our
+          Team 1661 is a FIRST Robotics Competition team located at the Buckley&nbsp;School
+          in Sherman&nbsp;Oaks,&nbsp;CA. We've been competing in FRC since our
           team's inception in 2005 and have won multiple competition awards over
           the years. Our team typically consists of 15-30 members, and we are
           working to expand both the team and our efforts to promote STEAM
@@ -217,7 +250,7 @@
 
     <section id="robots" class="reveal">
       <div id="robots-target" class="scroll-target"></div>
-      <h2 class="robot-head">Our Previous Robots:</h2>
+      <h2 class="robot-head">Our Previous Robots</h2>
       <hr />
       <div class="robot-captioned-photos">
         <div class="robot-captioned-photo">
