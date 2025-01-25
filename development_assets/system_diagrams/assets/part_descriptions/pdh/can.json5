@@ -1,0 +1,17 @@
+{
+  "file": "pdh/can.svg",
+  "name": "Power Distribution Hub: CAN",
+  "wire_connections": {
+    "can_a": {
+      "gauge": "22",
+      "yellow": {
+        "x": 0,
+        "y": 53.533
+      },
+      "green": {
+        "x": 0,
+        "y": 58.003
+      }
+    }
+  }
+}
