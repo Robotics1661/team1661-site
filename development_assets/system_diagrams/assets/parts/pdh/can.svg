@@ -25,9 +25,9 @@
      fit-margin-left="40"
      fit-margin-right="10"
      fit-margin-bottom="30"
-     inkscape:zoom="3.6728396"
-     inkscape:cx="69.292435"
-     inkscape:cy="57.993276"
+     inkscape:zoom="7.3456792"
+     inkscape:cx="60.647898"
+     inkscape:cy="92.026888"
      inkscape:window-width="1920"
      inkscape:window-height="1020"
      inkscape:window-x="0"
@@ -75,10 +75,6 @@
        orientation="1,0"
        id="guide3867" />
     <sodipodi:guide
-       position="103.81642,65.468365"
-       orientation="0,-1"
-       id="guide3869" />
-    <sodipodi:guide
        position="161.02002,0"
        orientation="0,-161.02002"
        id="guide7620" />
@@ -106,6 +102,10 @@
        position="30,17.148362"
        orientation="0,-1"
        id="guide8377" />
+    <sodipodi:guide
+       position="30,61.218261"
+       orientation="0,-1"
+       id="guide1565" />
   </sodipodi:namedview>
   <defs
      id="defs7">
@@ -348,18 +348,18 @@
        id="path4611" />
     <path
        id="polyline6489"
-       style="fill:none;stroke:#37b04a;stroke-width:2px;stroke-linejoin:round"
+       style="fill:none;stroke:#37b04a;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6,2;stroke-dashoffset:1.8"
        class="cls-84"
        transform="translate(-1704.4836,-959.42703)"
-       d="m 1768.3,1009.16 v 52.68 l -78.2864,0 0,-54.41 h -25.53"
-       sodipodi:nodetypes="ccccc" />
+       d="m 1747.1259,1061.84 h -57.1123 l 0,-48.4299"
+       sodipodi:nodetypes="ccc" />
     <path
        id="polyline6491"
-       style="fill:none;stroke:#d5dc28;stroke-width:2px;stroke-linejoin:round"
+       style="fill:none;stroke:#d5dc28;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:6.4;stroke-linecap:butt"
        class="cls-83"
        transform="translate(-1704.4836,-959.42703)"
-       d="m 1754.13,1009.16 v 48.32 l -59.6464,0 0,-54.52 h -30"
-       sodipodi:nodetypes="ccccc" />
+       d="m 1747.1259,1057.48 h -52.6423 v -44.0699"
+       sodipodi:nodetypes="ccc" />
     <text
        xml:space="preserve"
        id="text85380"
@@ -370,5 +370,32 @@
          x="33.249321"
          y="-10.208333"
          style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:21.3333px;font-family:Roboto;-inkscape-font-specification:'Roboto Light';fill:#000000">PDH CAN</tspan></text>
+    <path
+       id="path884"
+       style="fill:none;stroke:#d5dc28;stroke-width:2px;stroke-linejoin:round"
+       class="cls-83"
+       transform="translate(-1704.4836,-959.42703)"
+       d="M 1694.4836,1013.4101 V 1002.96 h -30"
+       sodipodi:nodetypes="ccc" />
+    <path
+       id="path886"
+       style="fill:none;stroke:#d5dc28;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       class="cls-83"
+       d="m 49.6464,49.73297 v 48.32 h -8.7068"
+       sodipodi:nodetypes="ccc" />
+    <path
+       id="path1569"
+       style="fill:none;stroke:#37b04a;stroke-width:2px;stroke-linejoin:round"
+       class="cls-84"
+       transform="translate(-1704.4836,-959.42703)"
+       d="m 1690.0136,1013.4101 v -5.9801 h -25.53"
+       sodipodi:nodetypes="ccc" />
+    <path
+       id="path1571"
+       style="fill:none;stroke:#37b04a;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       class="cls-84"
+       transform="translate(-1704.4836,-959.42703)"
+       d="m 1768.3,1009.16 v 52.68 h -22.8768"
+       sodipodi:nodetypes="ccc" />
   </g>
 </svg>
