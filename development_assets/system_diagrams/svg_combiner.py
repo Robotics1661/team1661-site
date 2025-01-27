@@ -3,11 +3,6 @@ from xml.dom import minidom
 import random
 
 
-#EXCEPTIONAL_CLASSES: set[str] = {
-#    "cls-output-wire"
-#}
-
-
 def uniq() -> str:
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     numeric = "0123456789"
@@ -21,11 +16,12 @@ def uniq() -> str:
 
 
 class SVG:
-    def __init__(self, path: str):
+    def __init__(self, path: str, debug_label: str | None = None):
         with open(path) as f:
             raw = f.read()
 
         self._path = path
+        self.debug_label = debug_label
         self._doc = minidom.parseString(raw)
         svg_element = self._doc.getElementsByTagName("svg")[0]
         self._width = float(svg_element.getAttribute("width"))
@@ -278,6 +274,12 @@ class MultiSVG:
             # clone all elements from svg.doc
             for element in svg.doc.childNodes:
                 group.appendChild(element.cloneNode(deep=True))
+
+            # add comment before group
+            if svg.debug_label:
+                comment = doc.createComment(f" {svg.debug_label} ")
+                svg_element.appendChild(comment)
+
             svg_element.appendChild(group)
 
             width = max(width, svg.x + svg.width)
@@ -292,17 +294,3 @@ class MultiSVG:
         doc.normalize()
 
         file.write(doc.toprettyxml())
-
-
-"""
-def combine(path_a: str, path_b: str, out_path: str):
-    with open(path_a) as a_file:
-        a_raw = a_file.read()
-    with open(path_b) as b_file:
-        b_raw = b_file.read()
-
-    a = minidom.parseString(a_raw)
-    b = minidom.parseString(b_raw)
-
-    return a
-"""

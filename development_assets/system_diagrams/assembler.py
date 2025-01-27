@@ -52,7 +52,7 @@ class Part:
             for typ, data in part["wire_sets"].items()
         ]
 
-        self.svg = svg_combiner.SVG(str(os.path.join(BASE_PATH, "parts", part["file"])))
+        self.svg = svg_combiner.SVG(str(os.path.join(BASE_PATH, "parts", part["file"])), debug_label=part_path.removesuffix(".json5"))
 
     def __repr__(self):
         return f"Part({self.part_path!r}, {self.wire_sets!r})"
@@ -175,6 +175,11 @@ class DrawingGroup:
             return Range(0, 0, inclusive=False)
         return self._combined_vertical_occupancy
 
+    @property
+    def horizontal_width(self) -> float:
+        return (sum(connection.get_bundle_width() for connection in self.connections)
+                + INTER_TRACK_MARGIN * (len(self.connections) - 1))
+
     def add(self, connection: BundledConnection):
         self.connections.append(connection)
         if self._combined_vertical_occupancy is None:
@@ -286,7 +291,7 @@ class Assembly:
 
         current_y = int((overall_height / 2) - (combined_sockets_height / 2))
         for socket in self.sockets:
-            socket.svg.x = self.main.svg.width + CONNECTION_TRACKS_WIDTH + MARGIN
+            socket.svg.x = self.main.svg.width + PRELIMINARY_CONNECTION_TRACKS_WIDTH + MARGIN
             socket.svg.y = current_y + MARGIN
             current_y += socket.svg.height + INTER_SOCKET_MARGIN
 
@@ -334,9 +339,17 @@ class Assembly:
 
             drawing_groups.append(current_group)
 
+        connection_tracks_width = max(group.horizontal_width for group in drawing_groups)
+        for socket in self.sockets:
+            socket.svg.x = self.main.svg.width + connection_tracks_width + 2*CONNECTION_TRACKS_MARGIN
+
+        # reinitialize connection offsets so that we can draw them properly
+        for connection in self.bundled_connections:
+            connection.initialize()
+
         # now draw each group
         for group in drawing_groups:
-            group.draw(multi, self.main.svg.x + self.main.svg.width + PRE_CONNECTION_MARGIN)
+            group.draw(multi, self.main.svg.x + self.main.svg.width + CONNECTION_TRACKS_MARGIN)
 
         if DEBUG:
             # add debug rectangles
@@ -348,13 +361,13 @@ class Assembly:
                 fill="#00aaff"+alpha, stroke_width=0
             ))
             multi.add_highlight_rect(svg_combiner.Rect(
-                x=int(self.main.svg.x + self.main.svg.width), y=MARGIN,
-                width=CONNECTION_TRACKS_WIDTH, height=height_tmp,
+                x=int(self.main.svg.x + self.main.svg.width + CONNECTION_TRACKS_MARGIN), y=MARGIN,
+                width=int(connection_tracks_width), height=height_tmp,
                 fill="#00ff37"+alpha, stroke_width=0
             ))
             multi.add_highlight_rect(svg_combiner.Rect(
-                x=int(self.main.svg.x + self.main.svg.width + CONNECTION_TRACKS_WIDTH), y=MARGIN,
-                width=int(multi.width - (self.main.svg.x + self.main.svg.width + CONNECTION_TRACKS_WIDTH)), height=height_tmp,
+                x=int(self.main.svg.x + self.main.svg.width + connection_tracks_width + 2*CONNECTION_TRACKS_MARGIN), y=MARGIN,
+                width=int(multi.width - (self.main.svg.x + self.main.svg.width + connection_tracks_width + 2*CONNECTION_TRACKS_MARGIN)), height=height_tmp,
                 fill="#ffaa00"+alpha, stroke_width=0
             ))
 
