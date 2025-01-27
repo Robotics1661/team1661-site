@@ -1,2 +1,6 @@
 .DS_Store
-/.venv
+.venv
+__pycache__
+/build
+# Local Netlify folder
+.netlify

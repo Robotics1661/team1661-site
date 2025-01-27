@@ -1,11 +1,18 @@
 #!/bin/bash
 
+mkdir build || rm -rf build/*
+
 USE_SVGO=1
 
 function usage {
   echo "Usage: build.sh [flags]"
   echo "Flags:"
   echo "  --no-svgo: Skip SVG optimization"
+}
+
+function echo_and_exit {
+  echo "$1"
+  exit 1
 }
 
 # check for flags
@@ -22,6 +29,20 @@ do
     exit 1
   fi
 done
+
+####################
+# Copy over source #
+####################
+echo "Copying source files"
+cp -r src/* build/
+# remove the dev-env link
+rm build/assets/system_diagrams
+
+########################
+# System diagram build #
+########################
+
+# todo use netlify cache
 
 if [ -d .venv ]; then
   echo "Virtual environment already exists"
@@ -58,12 +79,15 @@ if [ "$USE_SVGO" -eq 1 ]; then
 fi
 
 echo "Building system diagrams"
-pushd development_assets/system_diagrams >/dev/null || (echo "Failed to change directory to system diagrams"; exit 1)
-python3 assembler.py || (echo "Failed to build system diagrams"; exit 1)
+pushd development_assets/system_diagrams >/dev/null || echo_and_exit "Failed to change directory to system diagrams"
+python3 assembler.py || echo_and_exit "Failed to build system diagrams"
 if [ "$USE_SVGO" -eq 1 ]; then
   echo "Optimizing SVGs"
   svgo -f output
 fi
-popd >/dev/null || (echo "Failed to change directory to project root"; exit 1)
+popd >/dev/null || echo_and_exit "Failed to change directory to project root"
+
+mkdir build/assets/system_diagrams
+cp -r development_assets/system_diagrams/output/* build/assets/system_diagrams/
 
 echo "Done"
