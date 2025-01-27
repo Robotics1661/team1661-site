@@ -1,7 +1,7 @@
 {
   "file": "motors/falcon-500.svg",
   "name": "Falcon 500",
-  "wire_connections": {
+  "wire_sets": {
     "power": {
       "gauge": "12",
       "red": {

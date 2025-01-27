@@ -1,129 +1,241 @@
 import os
+import typing
+
 import json5
 
 import svg_combiner
-
-DEBUG = False
-
-MARGIN = 20
-CONNECTION_MARGIN = 100
-INTER_SOCKET_MARGIN = 60
-BASE_PATH = "assets"
-OUTPUT_PATH = "output"
-GAUGE_WIDTHS: dict[int, int] = {
-    12: 15,
-    22: 2
-}
+import brute_force_permuter
+from assembler_consts import *
+from assembler_utils import *
 
 
-def lerp(a: float, b: float, t: float) -> float:
-    return a + (b - a) * t
-
-
-class DebugPrinter:
-    def __init__(self):
-        self._indent = 0
-        self._out = ""
-
-    @property
-    def out(self) -> str:
-        return self._out
-
-    def add(self, text: str):
-        self._out += "  " * self._indent + text + "\n"
-
-    def as_child(self):
-        self._indent += 1
-
-    def as_parent(self):
-        self._indent -= 1
-
-    def print_child(self, child):
-        self.as_child()
-        if hasattr(child, "__debug_print__"):
-            child.__debug_print__(self)
-        else:
-            self.add(str(child))
-        self.as_parent()
-
-
-def debug_print(obj):
-    printer = DebugPrinter()
-    obj.__debug_print__(printer)
-    print(printer.out)
-
-
-class Gauge:
-    def __init__(self, value: int | str | None):
-        if type(value) == str:
-            if value == "*":
-                self.value = None
-            else:
-                self.value = int(value)
-        else:
-            self.value = value
-
-    @property
-    def gauge_width_style(self) -> str:
-        return f"{GAUGE_WIDTHS[self.value]}px !important"
+class WirePoint:
+    def __init__(self, wire: Wire, data: dict[str, ...]):
+        self.wire = wire
+        self.x = float(data["x"])
+        self.y = float(data["y"])
 
     def __repr__(self):
-        return f"Gauge({self.value})"
+        return f"WirePoint({self.wire!r}, x={self.x}, y={self.y})"
 
     def __str__(self):
-        if self.value is None:
-            return "*"
-        else:
-            return str(self.value)
-
-    def __eq__(self, other):
-        if self.value is other:
-            return True
-        elif isinstance(other, Gauge):
-            return self.value is None or other.value is None or self.value == other.value
-        else:
-            return False
-
-    def __or__(self, other):
-        if self.value is None:
-            return other
-        else:
-            return self
+        return f"{self.wire} at ({self.x}, {self.y})"
 
 
-class Wire:
-    def __init__(self, typ: str, key: str, color: int, idx: int):
+class WireSet:
+    def __init__(self, typ: str, data: dict[str, ...]):
         self.type = typ
-        self.key = key
-        self.color = color
-        self.idx = idx
+        definition = WIRE_TYPES[typ]
+        self.gauge = Gauge(data.get("gauge", None))
+        self.points = {
+            wire: WirePoint(wire, data[wire.key])
+            for wire in definition
+        }
+        self.wire_gauge_css_class: str | None = data.get("wire_gauge_css_class", None)
 
     def __repr__(self):
-        return f"Wire(\"{self.type}\", \"{self.key}\", 0x{self.color:06x})"
+        return f"WireSet({self.type!r}, {self.gauge!r}, {self.points!r})"
 
     def __str__(self):
-        return f"{self.key} {self.type} wire ({self.color:06x})"
-
-    def __hash__(self):
-        return hash(self.key) ^ hash(self.type)
-
-    def __eq__(self, other):
-        return self is other or isinstance(other, Wire) and self.type == other.type and self.key == other.key
+        return f"{self.type} wire set with {self.gauge} gauge: {', '.join(map(str, self.points))}"
 
 
-CONNECTION_TYPES: dict[str, tuple[Wire, ...]] = {
-    v[0].type: v
-    for v in [
-        (
-            Wire("power", "red", 0xe6282b, 0),
-            Wire("power", "black", 0x231f20, 1)),
-        (
-            Wire("can_a", "yellow", 0xd5dc28, 0),
-            Wire("can_a", "green", 0x37b04a, 1)),
-        (
-            Wire("can_b", "yellow", 0xd5dc28, 0),
-            Wire("can_b", "green", 0x37b04a, 1)), ]
-}
+class Part:
+    def __init__(self, part_path: str):
+        with open(os.path.join(BASE_PATH, "part_descriptions", part_path)) as f:
+            part = json5.load(f)
+
+        self.part_path = part_path
+
+        self.wire_sets = [
+            WireSet(typ, data)
+            for typ, data in part["wire_sets"].items()
+        ]
+
+        self.svg = svg_combiner.SVG(str(os.path.join(BASE_PATH, "parts", part["file"])))
+
+    def __repr__(self):
+        return f"Part({self.part_path!r}, {self.wire_sets!r})"
+
+    def __str__(self):
+        return f"Part {self.part_path} with {len(self.wire_sets)} wire sets"
+
+    def print_wire_sets_transformed(self, printer: DebugPrinter, x_offs: float, y_offs: float):
+        for wire_set in self.wire_sets:
+            printer.add(f"WireSet {wire_set.type} with {wire_set.gauge} gauge:")
+            printer.as_child()
+            for point in wire_set.points.values():
+                printer.add(f"{point.wire} at ({point.x + x_offs}, {point.y + y_offs})")
+            printer.as_parent()
+
+    def __debug_print__(self, printer: DebugPrinter):
+        printer.add(f"Part {self.part_path} with {len(self.wire_sets)} wire sets:")
+        for wire_set in self.wire_sets:
+            printer.print_child(wire_set)
+
+
+class BundledConnection:
+    def __init__(self, source: WireSet, target: WireSet, source_part: Part, target_part: Part):
+        self.source = source
+        self.target = target
+        self.source_part = source_part
+        self.target_part = target_part
+
+        # we hold off on initializing these, because the parts won't be positioned yet at __init__ time
+        self._source_offset: tuple[float, float] | None = None
+        self._target_offset: tuple[float, float] | None = None
+
+    @property
+    def initialized(self) -> bool:
+        return self._source_offset is not None and self._target_offset is not None
+
+    def initialize(self):
+        self._source_offset = (self.source_part.svg.x, self.source_part.svg.y)
+        self._target_offset = (self.target_part.svg.x, self.target_part.svg.y)
+
+    def _ensure_initialized(self):
+        if not self.initialized:
+            raise ValueError("Offsets not initialized")
+
+    @property
+    def source_offset(self) -> tuple[float, float]:
+        self._ensure_initialized()
+        return self._source_offset
+
+    @property
+    def target_offset(self) -> tuple[float, float]:
+        self._ensure_initialized()
+        return self._target_offset
+
+    @property
+    def gauge(self) -> Gauge:
+        return self.source.gauge | self.target.gauge
+
+    @property
+    def inter_wire_spacing(self) -> float:
+        return max(2.0, GAUGE_WIDTHS[self.gauge.value] * 0.5)
+
+    def get_bundle_width(self) -> float:
+        wire_count = len(self.source.points)
+        return (GAUGE_WIDTHS[self.gauge.value] * wire_count
+                + self.inter_wire_spacing * (wire_count - 1))
+
+    def get_wires_to_draw(self) -> typing.Generator[tuple[WirePoint, WirePoint, float], None, None]:
+        """Generate pairs of wire points and the track-relative offset to draw the vertical line
+        """
+        source_points = list(self.source.points.values())
+        target_points = [self.target.points[v.wire] for v in source_points]
+        connections = zip(source_points, target_points)
+
+        # sort connections by the source point's y coordinate
+        connections = sorted(connections, key=lambda c: -c[0].y)
+
+        source_average_y = (sum(point.y for point in source_points) / len(source_points)) + self.source_offset[1]
+        target_average_y = (sum(point.y for point in target_points) / len(target_points)) + self.target_offset[1]
+
+        if target_average_y < source_average_y:
+            connections = reversed(list(connections))
+
+        for i, (source, target) in enumerate(connections):
+            yield source, target, (i * (GAUGE_WIDTHS[self.gauge.value] + self.inter_wire_spacing))
+
+    def _get_vertical_occupancy(self, wire_set: WireSet, offset: tuple[float, float]) -> Range:
+        min_y = min(point.y for point in wire_set.points.values()) + offset[1]
+        max_y = max(point.y for point in wire_set.points.values()) + offset[1]
+        return Range(min_y, max_y).expand(GAUGE_WIDTHS[self.gauge.value] / 2)
+
+    def get_source_vertical_occupancy(self) -> Range:
+        self._ensure_initialized()
+        return self._get_vertical_occupancy(self.source, self._source_offset)
+
+    def get_target_vertical_occupancy(self) -> Range:
+        self._ensure_initialized()
+        return self._get_vertical_occupancy(self.target, self._target_offset)
+
+    def get_vertical_occupancy(self) -> Range:
+        return self.get_source_vertical_occupancy().expand_with(self.get_target_vertical_occupancy())
+
+    def __str__(self):
+        status = "initialized" if self.initialized else "uninitialized"
+        return f"BundledConnection {{{self.source_part}}}->{{{self.target_part}}} [{{{self.source}}}->{{{self.target}}}] ({status})"
+
+    def __repr__(self):
+        return f"BundledConnection({self.source!r}, {self.target!r}, {self.source_part!r}, {self.target_part!r})"
+
+
+class DrawingGroup:
+    """A group of connections that have to be drawn together because they occupy overlapping 'rows' of the image"""
+    def __init__(self):
+        self.connections: list[BundledConnection] = []
+        self._combined_vertical_occupancy: Range | None = None
+
+    @property
+    def combined_vertical_occupancy(self) -> Range:
+        if self._combined_vertical_occupancy is None:
+            return Range(0, 0, inclusive=False)
+        return self._combined_vertical_occupancy
+
+    def add(self, connection: BundledConnection):
+        self.connections.append(connection)
+        if self._combined_vertical_occupancy is None:
+            self._combined_vertical_occupancy = connection.get_vertical_occupancy()
+        else:
+            self._combined_vertical_occupancy.expand_with(connection.get_vertical_occupancy())
+
+    def __str__(self):
+        return f"DrawingGroup with {len(self.connections)} connections: {', '.join(map(str, self.connections))}"
+
+    def __repr__(self):
+        return f"DrawingGroup({self.connections!r})"
+
+    def draw(self, multi: svg_combiner.MultiSVG, start_x: float):
+        # tracks are interpreted as a list of connections from the source to the target
+        def evaluator(tracks: list[BundledConnection]) -> float:
+            collision_count = 0
+
+            for i_, connection_ in enumerate(tracks):
+                # count the number of collisions this connection will experience traveling from the source to the track
+                source_occupancy = connection_.get_source_vertical_occupancy()
+                for other_connection in tracks[:i_]:
+                    if source_occupancy.overlaps(other_connection.get_vertical_occupancy()):
+                        collision_count += 1
+
+                # count the number of collisions this connection will experience traveling from the track to the target
+                target_occupancy = connection_.get_target_vertical_occupancy()
+                for other_connection in tracks[i_+1:]:
+                    if target_occupancy.overlaps(other_connection.get_vertical_occupancy()):
+                        collision_count += 1
+
+            return -collision_count
+
+        best_tracks = brute_force_permuter.find_best_permutation(set(self.connections), evaluator, good_enough=0)
+        track_horizontal_positions = [0]
+        for i, connection in enumerate(best_tracks[:-1]):
+            track_horizontal_positions.append(track_horizontal_positions[i] + connection.get_bundle_width() + INTER_TRACK_MARGIN)
+
+        # begin drawing connections
+        for i in range(len(best_tracks)):
+            track = best_tracks[i]
+            track_horizontal_position = track_horizontal_positions[i]
+            for (source, target, crossover_offset) in track.get_wires_to_draw():
+                path = multi.add_path()
+                path.style("stroke-width", track.gauge.gauge_width_style)
+                path.style("stroke", f"#{source.wire.color:06x}")
+                path.style("fill", "none")
+                path.style("stroke-linejoin", "round")
+
+                x0 = track.source_offset[0] + source.x
+                y0 = track.source_offset[1] + source.y
+
+                xm = start_x + track_horizontal_position + crossover_offset
+
+                x1 = track.target_offset[0] + target.x
+                y1 = track.target_offset[1] + target.y
+
+                path.move_to(x0-1, y0)
+                path.line_to(xm, y0)
+                path.line_to(xm, y1)
+                path.line_to(x1+1, y1)
 
 
 class Assembly:
@@ -133,28 +245,39 @@ class Assembly:
 
         self.main = Part(assembly["main"])
         self.sockets = [Part(socket) for socket in assembly["sockets"]]
-        self.wire_alignments: dict[str, float] = assembly.get("wire_alignments", {})
-        self.wire_offsets: dict[str, int] = assembly.get("wire_offsets", {})
+        self.bundled_connections: list[BundledConnection] = []
 
-        # try to resolve connections from main part to sockets
-        for connection in self.main.connections:
+        # try to form connections to sockets for each wire set in the main part
+        for main_wire_set in self.main.wire_sets:
             resolved = False
+
             for socket in self.sockets:
-                for socket_connection in socket.connections:
-                    if connection.typ == socket_connection.typ and connection.gauge == socket_connection.gauge:
-                        connection.targeted_part = socket
-                        connection.targeted_connection = socket_connection
-                        if connection.wire_gauge_css_class is not None:
-                            socket.svg.override_style(f".{connection.wire_gauge_css_class}", "stroke-width", connection.gauge.gauge_width_style)
-                        resolved = True
-                        break
+                for socket_wire_set in socket.wire_sets:
+                    # don't link non-matching wire types - that's just silly
+                    if main_wire_set.type != socket_wire_set.type:
+                        continue
+
+                    # the gauges should be the same (or one of them should be variable). Otherwise, visuals will be off
+                    if main_wire_set.gauge != socket_wire_set.gauge:
+                        raise ValueError(f"Wire set {main_wire_set} from main part does not match gauge of {socket_wire_set} from socket")
+
+                    # in the case of a variable gauge, we need to provide the correct styling
+                    if main_wire_set.wire_gauge_css_class is not None:
+                        socket.svg.override_style(f".{main_wire_set.wire_gauge_css_class}", "stroke-width", main_wire_set.gauge.gauge_width_style)
+
+                    self.bundled_connections.append(BundledConnection(main_wire_set, socket_wire_set, self.main, socket))
+                    resolved = True
+                    break
+
+                # if we found a matching wire set, we don't need to check the other sockets
                 if resolved:
                     break
+
             if not resolved:
-                raise ValueError(f"Could not resolve connection {connection} from main part to any socket")
+                raise ValueError(f"Could not resolve wire set {main_wire_set} from main part to any socket")
 
     def write_svg(self, path: str):
-        # align main part and sockets
+        # position main part and sockets
         combined_sockets_height = sum(socket.svg.height for socket in self.sockets) + INTER_SOCKET_MARGIN * (len(self.sockets) - 1)
         overall_height = max(self.main.svg.height, combined_sockets_height)
 
@@ -163,7 +286,7 @@ class Assembly:
 
         current_y = int((overall_height / 2) - (combined_sockets_height / 2))
         for socket in self.sockets:
-            socket.svg.x = self.main.svg.width + CONNECTION_MARGIN + MARGIN
+            socket.svg.x = self.main.svg.width + CONNECTION_TRACKS_WIDTH + MARGIN
             socket.svg.y = current_y + MARGIN
             current_y += socket.svg.height + INTER_SOCKET_MARGIN
 
@@ -172,33 +295,48 @@ class Assembly:
             printer = DebugPrinter()
             printer.add("Transformed connections for main part:")
             printer.as_child()
-            self.main.print_connections_transformed(printer, self.main.svg.x, self.main.svg.y)
+            self.main.print_wire_sets_transformed(printer, self.main.svg.x, self.main.svg.y)
             printer.as_parent()
             printer.add("Transformed connections for sockets:")
             printer.as_child()
             for socket in self.sockets:
                 printer.add(f"Socket {socket.part_path}:")
                 printer.as_child()
-                socket.print_connections_transformed(printer, socket.svg.x, socket.svg.y)
+                socket.print_wire_sets_transformed(printer, socket.svg.x, socket.svg.y)
                 printer.as_parent()
             printer.as_parent()
             print(printer.out)
 
         multi = svg_combiner.MultiSVG(self.main.svg, *map(lambda p: p.svg, self.sockets))
 
-        # connecting wires
-        for connection in self.main.connections:
-            for point in connection.points.values():
-                target_point = connection.targeted_connection.points[point.wire]
-                point.draw_path_to(
-                    target_point,
-                    (self.main.svg.x, self.main.svg.y),
-                    (connection.targeted_part.svg.x, connection.targeted_part.svg.y),
-                    multi,
-                    connection.gauge | connection.targeted_connection.gauge,
-                    self.wire_alignments.get(connection.typ, 0.5),
-                    self.wire_offsets.get(connection.typ, 0)
-                )
+        # initialize connection offsets so that we can start grouping connections that need to be de-crossed
+        for connection in self.bundled_connections:
+            connection.initialize()
+
+        # sort connections by the start of their vertical occupancy
+        self.bundled_connections.sort(key=lambda c: c.get_source_vertical_occupancy().min)
+
+        # group connections that need to be drawn together
+        drawing_groups: list[DrawingGroup] = []
+
+        if self.bundled_connections:
+            current_group = DrawingGroup()
+            current_group.add(self.bundled_connections[0])
+
+            # as long as the vertical occupancy of the current group overlaps with the next connection, add it to the group
+            for connection in self.bundled_connections[1:]:
+                if current_group.combined_vertical_occupancy.overlaps(connection.get_source_vertical_occupancy()):
+                    current_group.add(connection)
+                else:
+                    drawing_groups.append(current_group)
+                    current_group = DrawingGroup()
+                    current_group.add(connection)
+
+            drawing_groups.append(current_group)
+
+        # now draw each group
+        for group in drawing_groups:
+            group.draw(multi, self.main.svg.x + self.main.svg.width + PRE_CONNECTION_MARGIN)
 
         if DEBUG:
             # add debug rectangles
@@ -211,12 +349,12 @@ class Assembly:
             ))
             multi.add_highlight_rect(svg_combiner.Rect(
                 x=int(self.main.svg.x + self.main.svg.width), y=MARGIN,
-                width=CONNECTION_MARGIN, height=height_tmp,
+                width=CONNECTION_TRACKS_WIDTH, height=height_tmp,
                 fill="#00ff37"+alpha, stroke_width=0
             ))
             multi.add_highlight_rect(svg_combiner.Rect(
-                x=int(self.main.svg.x + self.main.svg.width + CONNECTION_MARGIN), y=MARGIN,
-                width=int(multi.width - (self.main.svg.x + self.main.svg.width + CONNECTION_MARGIN)), height=height_tmp,
+                x=int(self.main.svg.x + self.main.svg.width + CONNECTION_TRACKS_WIDTH), y=MARGIN,
+                width=int(multi.width - (self.main.svg.x + self.main.svg.width + CONNECTION_TRACKS_WIDTH)), height=height_tmp,
                 fill="#ffaa00"+alpha, stroke_width=0
             ))
 
@@ -236,102 +374,6 @@ class Assembly:
         printer.add("Sockets:")
         for socket in self.sockets:
             printer.print_child(socket)
-
-
-class ConnectionPoint:
-    def __init__(self, wire: Wire, data: dict[str, ...]):
-        self.wire = wire
-        self.x = float(data["x"])
-        self.y = float(data["y"])
-
-    def __repr__(self):
-        return f"ConnectionPoint({self.wire!r}, x={self.x}, y={self.y})"
-
-    def __str__(self):
-        return f"{self.wire} at ({self.x}, {self.y})"
-
-    def draw_path_to(
-            self,
-            target_point: "ConnectionPoint",
-            my_offset: tuple[float, float],
-            other_offset: tuple[float, float],
-            multi: svg_combiner.MultiSVG,
-            gauge: Gauge,
-            alignment: float,
-            wire_offset: int
-    ):
-        path = multi.add_path()
-        path.style("stroke-width", gauge.gauge_width_style)
-        path.style("stroke", f"#{self.wire.color:06x}")
-        path.style("fill", "none")
-        path.style("stroke-linejoin", "round")
-
-        x0, y0 = self.x + my_offset[0], self.y + my_offset[1]
-        x1, y1 = target_point.x + other_offset[0], target_point.y + other_offset[1]
-
-        offset = -1 if x0 > x1 else 1
-
-        xm = lerp(x0, x1, alignment)
-        xm += wire_offset * GAUGE_WIDTHS[gauge.value] * self.wire.idx * 2
-
-        path.move_to(x0-offset, y0)
-        path.line_to(xm, y0)
-        path.line_to(xm, y1)
-        path.line_to(x1+offset, y1)
-
-
-class Connection:
-    def __init__(self, typ: str, data: dict[str, ...]):
-        self.typ = typ
-        definition = CONNECTION_TYPES[typ]
-        self.gauge = Gauge(data.get("gauge", None))
-        self.points = {
-            wire: ConnectionPoint(wire, data[wire.key])
-            for wire in definition
-        }
-        self.wire_gauge_css_class: str | None = data.get("wire_gauge_css_class", None)
-        self.targeted_part: Part | None = None
-        self.targeted_connection: Connection | None = None
-
-    def __repr__(self):
-        return f"Connection({self.typ!r}, {self.gauge!r}, {self.points!r})"
-
-    def __str__(self):
-        return f"{self.typ} connection with {self.gauge} gauge: {', '.join(map(str, self.points))}"
-
-
-class Part:
-    def __init__(self, part_path: str):
-        with open(os.path.join(BASE_PATH, "part_descriptions", part_path)) as f:
-            part = json5.load(f)
-
-        self.part_path = part_path
-
-        self.connections = [
-            Connection(typ, data)
-            for typ, data in part["wire_connections"].items()
-        ]
-
-        self.svg = svg_combiner.SVG(os.path.join(BASE_PATH, "parts", part["file"]))
-
-    def __repr__(self):
-        return f"Part({self.part_path!r}, {self.connections!r})"
-
-    def __str__(self):
-        return f"Part {self.part_path} with {len(self.connections)} connections"
-
-    def print_connections_transformed(self, printer: DebugPrinter, x_offs: float, y_offs: float):
-        for connection in self.connections:
-            printer.add(f"Connection {connection.typ} with {connection.gauge} gauge:")
-            printer.as_child()
-            for point in connection.points.values():
-                printer.add(f"{point.wire} at ({point.x + x_offs}, {point.y + y_offs})")
-            printer.as_parent()
-
-    def __debug_print__(self, printer: DebugPrinter):
-        printer.add(f"Part {self.part_path} with {len(self.connections)} connections:")
-        for connection in self.connections:
-            printer.print_child(connection)
 
 
 def main():

@@ -4,15 +4,5 @@
     "pdh/can.json5",
     "pdh/hc_40.json5",
     "rio/can.json5"
-  ],
-  "wire_alignments": {
-    "power": 0.75,
-    "can_a": 0.25,
-    "can_b": 0.25
-  },
-  "wire_offsets": {
-    "power": 0.75,
-    "can_a": 1,
-    "can_b": -1
-  }
+  ]
 }

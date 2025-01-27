@@ -1,7 +1,7 @@
 {
   "file": "pdh/hc_40.svg",
   "name": "Power Distribution Hub: High Current 40A",
-  "wire_connections": {
+  "wire_sets": {
     "power": {
       "gauge": "*",
       "wire_gauge_css_class": "cls-output-wire",

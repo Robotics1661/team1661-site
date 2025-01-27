@@ -1,7 +1,7 @@
 {
   "file": "rio/can.svg",
   "name": "RoboRIO: CAN",
-  "wire_connections": {
+  "wire_sets": {
     "can_b": {
       "gauge": "22",
       "yellow": {
