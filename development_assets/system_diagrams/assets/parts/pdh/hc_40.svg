@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    id="Layer_1"
-   width="247.772"
-   height="87.129"
+   width="237.772"
+   height="87.128998"
    data-name="Layer 1"
    version="1.1"
    sodipodi:docname="hc_40.svg"
@@ -21,7 +21,7 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="3.3960943"
-     inkscape:cx="143.25279"
+     inkscape:cx="136.77477"
      inkscape:cy="43.579473"
      inkscape:window-width="1920"
      inkscape:window-height="1020"
@@ -39,9 +39,9 @@
        style="overflow:visible">
       <path
          id="path68840"
-         d="m0 0 5-5-17.5 5L5 5Z"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
-         transform="translate(10)scale(.8)" />
+         transform="matrix(0.8,0,0,0.8,10,0)" />
     </marker>
     <marker
        id="Arrow1Lstart"
@@ -51,9 +51,9 @@
        style="overflow:visible">
       <path
          id="path31255"
-         d="m0 0 5-5-17.5 5L5 5Z"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
-         transform="translate(10)scale(.8)" />
+         transform="matrix(0.8,0,0,0.8,10,0)" />
     </marker>
     <style
        id="style2">.cls-30 { fill:#323031 }
@@ -65,33 +65,33 @@
   </defs>
   <path
      id="polyline2575"
-     d="M22.681 29.73H0"
+     d="M 22.681,29.73 H 0"
      style="fill:none;stroke:#231f20;stroke-linecap:butt;stroke-linejoin:round"
      class="cls-output-wire" />
   <rect
      id="rect35911"
      width="111.925"
-     height="66.047"
+     height="66.046997"
      x="22.681"
      y="10.542"
      rx="0"
      style="fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
   <path
      id="polyline2577"
-     d="M0 59.85h22.68"
-     style="stroke-linejoin:round;stroke-linecap:butt;stroke:#e6282b;fill:none"
+     d="M 0,59.85 H 22.68"
+     style="fill:none;stroke:#e6282b;stroke-linecap:butt;stroke-linejoin:round"
      class="cls-output-wire" />
   <rect
      id="rect30883"
      width="116.41"
-     height="66.047"
+     height="66.046997"
      x="120.821"
      y="10.542"
      rx="0"
      style="mix-blend-mode:normal;fill:#212121;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
   <path
      id="path3895"
-     d="M124.881 21.475h98.83c3.75.87 6 3 6.58 6.53l.07 11.47a7.43 7.43 0 0 1-6.88 7.13h-37.55c-2.32.24-3.3 1.05-3.31 2.29v2.28c-.62 3.62-2.63 5.81-6.08 6.52l-51.66.06z"
+     d="m 124.881,21.475 h 98.83 c 3.75,0.87 6,3 6.58,6.53 l 0.07,11.47 a 7.43,7.43 0 0 1 -6.88,7.13 h -37.55 c -2.32,0.24 -3.3,1.05 -3.31,2.29 v 2.28 c -0.62,3.62 -2.63,5.81 -6.08,6.52 l -51.66,0.06 z"
      style="fill:#bababa" />
   <g
      aria-label="##"
@@ -109,112 +109,112 @@
   </g>
   <circle
      id="circle3905"
-     cx="132.751"
+     cx="132.75101"
      cy="31.525"
      r="3.05"
      style="fill:#ed3837" />
   <path
      id="rect4283"
-     d="M-113.871-73.435h87.18v30.3h-87.18z"
+     d="m -113.871,-73.435 h 87.18 v 30.3 h -87.18 z"
      style="fill:#d93b37"
      transform="scale(-1)" />
   <path
      id="polygon4285"
-     d="M1700.52 278.15v-2.58h-64.6v3.15h55.73v27.15h8.87v-23.72h-6.58v-3.72z"
+     d="m 1700.52,278.15 v -2.58 h -64.6 v 3.15 h 55.73 v 27.15 h 8.87 v -23.72 h -6.58 v -3.72 z"
      style="fill:#ef413e"
-     transform="translate(-1586.639 -232.445)" />
+     transform="translate(-1586.639,-232.445)" />
   <path
      id="path4287"
-     d="M15.551 65.995c.34 4.4 3.34 7.2 9.14 8.29h24v-1.14h25.15l5.14-7.15h23.44v-14.29h-23.44l-8.57-4.86h-21.72v-1.43h-24c-5.59 1.24-8.71 3.73-9.15 7.58zm30-10.86v-1.43h4.29v1.43q5.73 4.71 0 9.43v1.43h-4.29v-1.44c-4.27-3.07-4.1-6.21.01-9.42z"
+     d="m 15.551,65.995 c 0.34,4.4 3.34,7.2 9.14,8.29 h 24 v -1.14 h 25.15 l 5.14,-7.15 h 23.44 v -14.29 h -23.44 l -8.57,-4.86 h -21.72 v -1.43 h -24 c -5.59,1.24 -8.71,3.73 -9.15,7.58 z m 30,-10.86 v -1.43 h 4.29 v 1.43 q 5.73,4.71 0,9.43 v 1.43 h -4.29 v -1.44 c -4.27,-3.07 -4.1,-6.21 0.01,-9.42 z"
      class="cls-123" />
   <path
      id="rect4289"
-     d="M-113.871-43.145h87.18v30.3h-87.18z"
+     d="m -113.871,-43.145 h 87.18 v 30.3 h -87.18 z"
      style="fill:#231f20"
      transform="scale(-1)" />
   <path
      id="polygon4291"
-     d="M1700.52 247.87v-2.57h-64.6v3.14h55.73v27.16h8.87v-23.73h-6.58v-3.71z"
+     d="m 1700.52,247.87 v -2.57 h -64.6 v 3.14 h 55.73 v 27.16 h 8.87 v -23.73 h -6.58 v -3.71 z"
      class="cls-30"
-     transform="translate(-1586.639 -232.445)" />
+     transform="translate(-1586.639,-232.445)" />
   <path
      id="path4293"
-     d="M15.551 35.715c.34 4.41 3.34 7.2 9.14 8.29h24v-1.14h25.15l5.14-7.15h23.44v-14.29h-23.44l-8.57-4.86h-21.72v-1.43h-24c-5.59 1.24-8.71 3.73-9.15 7.58zm30-10.86v-1.43h4.29v1.43q5.73 4.72 0 9.43v1.43h-4.29v-1.43c-4.27-3.08-4.1-6.22.01-9.43z"
+     d="m 15.551,35.715 c 0.34,4.41 3.34,7.2 9.14,8.29 h 24 v -1.14 h 25.15 l 5.14,-7.15 h 23.44 v -14.29 h -23.44 l -8.57,-4.86 h -21.72 v -1.43 h -24 c -5.59,1.24 -8.71,3.73 -9.15,7.58 z m 30,-10.86 v -1.43 h 4.29 v 1.43 q 5.73,4.72 0,9.43 v 1.43 h -4.29 v -1.43 c -4.27,-3.08 -4.1,-6.22 0.01,-9.43 z"
      class="cls-123" />
   <g
      id="layer3"
      style="display:inline"
-     transform="translate(15.541 -140.975)">
+     transform="translate(15.541,-140.975)">
     <g
        id="g33009">
       <rect
          id="rect3897"
-         width="68.92"
+         width="68.919998"
          height="12.43"
-         x="137.35"
+         x="137.35001"
          y="169.02"
-         rx="2.08"
+         rx="2.0799999"
          style="fill:#1a1a1a" />
       <rect
          id="rect3899"
-         width="66.89"
+         width="66.889999"
          height="10.29"
          x="138.5"
          y="169.88"
          class="cls-30"
-         rx=".85" />
+         rx="0.85000002" />
       <path
          id="polygon3901"
-         d="M1741.78 261.04v6.29l1.43 2h25.44l1.15-1.43v-6.86h-1.72v6.58l-.29.28h-24.01l-.28-.28v-6.58z"
+         d="m 1741.78,261.04 v 6.29 l 1.43,2 h 25.44 l 1.15,-1.43 v -6.86 h -1.72 v 6.58 l -0.29,0.28 h -24.01 l -0.28,-0.28 v -6.58 z"
          class="cls-121"
-         transform="translate(-1602.18 -91.47)" />
+         transform="translate(-1602.18,-91.47)" />
       <path
          id="polygon3903"
-         d="M1778.69 261.04v6.29l1.43 2h25.44l1.14-1.43v-6.86h-1.72v6.58l-.28.28h-24.01l-.29-.28v-6.58z"
+         d="m 1778.69,261.04 v 6.29 l 1.43,2 h 25.44 l 1.14,-1.43 v -6.86 h -1.72 v 6.58 l -0.28,0.28 h -24.01 l -0.29,-0.28 v -6.58 z"
          class="cls-121"
-         transform="translate(-1602.18 -91.47)" />
+         transform="translate(-1602.18,-91.47)" />
       <rect
          id="rect4857"
          width="84.18"
-         height="40.39"
+         height="40.389999"
          x="133.45"
          y="154.84"
-         rx="6.83"
+         rx="6.8299999"
          style="fill:#d79528" />
       <path
          id="path4859"
-         d="M157.02 180.21h-1.59v-7.42l-2.26.76v-1.33l3.65-1.33h.2z"
+         d="m 157.02,180.21 h -1.59 v -7.42 l -2.26,0.76 v -1.33 l 3.65,-1.33 h 0.2 z"
          class="cls-134" />
       <path
          id="path4861"
-         d="M166.47 180.21h-6.26v-1.09l3-3.29a10 10 0 0 0 .78-.95 3.4 3.4 0 0 0 .4-.72 2.1 2.1 0 0 0 .11-.63 1.6 1.6 0 0 0-.35-1.06 1.29 1.29 0 0 0-1-.41 1.6 1.6 0 0 0-.86.22 1.37 1.37 0 0 0-.52.6 2.1 2.1 0 0 0-.18.89h-1.58a3.14 3.14 0 0 1 .37-1.5 2.8 2.8 0 0 1 1.08-1.08 3.5 3.5 0 0 1 1.7-.4 3.08 3.08 0 0 1 2.17.7 2.41 2.41 0 0 1 .77 1.87 2.8 2.8 0 0 1-.25 1.16 5.7 5.7 0 0 1-.68 1.13 14 14 0 0 1-1 1.16l-2 2.13h4.26z"
+         d="m 166.47,180.21 h -6.26 v -1.09 l 3,-3.29 a 10,10 0 0 0 0.78,-0.95 3.4,3.4 0 0 0 0.4,-0.72 2.1,2.1 0 0 0 0.11,-0.63 1.6,1.6 0 0 0 -0.35,-1.06 1.29,1.29 0 0 0 -1,-0.41 1.6,1.6 0 0 0 -0.86,0.22 1.37,1.37 0 0 0 -0.52,0.6 2.1,2.1 0 0 0 -0.18,0.89 h -1.58 a 3.14,3.14 0 0 1 0.37,-1.5 2.8,2.8 0 0 1 1.08,-1.08 3.5,3.5 0 0 1 1.7,-0.4 3.08,3.08 0 0 1 2.17,0.7 2.41,2.41 0 0 1 0.77,1.87 2.8,2.8 0 0 1 -0.25,1.16 5.7,5.7 0 0 1 -0.68,1.13 14,14 0 0 1 -1,1.16 l -2,2.13 h 4.26 z"
          class="cls-134" />
       <path
          id="path4863"
-         d="m171.27 178.46.33 1.75h-1.23l-3.31-9.29h1.81zm2.23-7.54h1.82l-3.32 9.29h-1.18l.31-1.75z"
+         d="m 171.27,178.46 0.33,1.75 h -1.23 l -3.31,-9.29 h 1.81 z m 2.23,-7.54 h 1.82 l -3.32,9.29 h -1.18 l 0.31,-1.75 z"
          class="cls-134" />
       <path
          id="path4865"
-         d="M182.53 178.14h-6.71v-1l4-6.25h1.27l-1.35 2.37-2.27 3.58h5.13zm-1.15 2.07h-1.56v-9.29h1.59z"
+         d="m 182.53,178.14 h -6.71 v -1 l 4,-6.25 h 1.27 l -1.35,2.37 -2.27,3.58 h 5.13 z m -1.15,2.07 h -1.56 v -9.29 h 1.59 z"
          class="cls-134" />
       <path
          id="path4867"
-         d="M189.62 176.32a6 6 0 0 1-.38 2.32 2.6 2.6 0 0 1-1.06 1.29 3.07 3.07 0 0 1-1.6.41 3.13 3.13 0 0 1-1.61-.41 2.62 2.62 0 0 1-1.07-1.29 5.8 5.8 0 0 1-.39-2.32v-1.54a5.9 5.9 0 0 1 .38-2.32 2.58 2.58 0 0 1 1.07-1.27 3.1 3.1 0 0 1 1.6-.4 3.1 3.1 0 0 1 1.61.4 2.53 2.53 0 0 1 1.07 1.27 5.9 5.9 0 0 1 .38 2.32zm-1.58-1.78a5.1 5.1 0 0 0-.17-1.45 1.45 1.45 0 0 0-.5-.78 1.34 1.34 0 0 0-.81-.24 1.3 1.3 0 0 0-.79.24 1.45 1.45 0 0 0-.5.78 4.8 4.8 0 0 0-.17 1.45v2a5 5 0 0 0 .17 1.47 1.6 1.6 0 0 0 .51.81 1.34 1.34 0 0 0 .8.25 1.3 1.3 0 0 0 .8-.25 1.54 1.54 0 0 0 .49-.81 5.3 5.3 0 0 0 .17-1.47z"
+         d="m 189.62,176.32 a 6,6 0 0 1 -0.38,2.32 2.6,2.6 0 0 1 -1.06,1.29 3.07,3.07 0 0 1 -1.6,0.41 3.13,3.13 0 0 1 -1.61,-0.41 2.62,2.62 0 0 1 -1.07,-1.29 5.8,5.8 0 0 1 -0.39,-2.32 v -1.54 a 5.9,5.9 0 0 1 0.38,-2.32 2.58,2.58 0 0 1 1.07,-1.27 3.1,3.1 0 0 1 1.6,-0.4 3.1,3.1 0 0 1 1.61,0.4 2.53,2.53 0 0 1 1.07,1.27 5.9,5.9 0 0 1 0.38,2.32 z m -1.58,-1.78 a 5.1,5.1 0 0 0 -0.17,-1.45 1.45,1.45 0 0 0 -0.5,-0.78 1.34,1.34 0 0 0 -0.81,-0.24 1.3,1.3 0 0 0 -0.79,0.24 1.45,1.45 0 0 0 -0.5,0.78 4.8,4.8 0 0 0 -0.17,1.45 v 2 a 5,5 0 0 0 0.17,1.47 1.6,1.6 0 0 0 0.51,0.81 1.34,1.34 0 0 0 0.8,0.25 1.3,1.3 0 0 0 0.8,-0.25 1.54,1.54 0 0 0 0.49,-0.81 5.3,5.3 0 0 0 0.17,-1.47 z"
          class="cls-134" />
       <path
          id="path4869"
-         d="M192.11 180.21h-1.72l3.49-9.29h1.1l-.11 1.32zm4.94-2.12h-5.06v-1.33h5.06zm-2.66-5.85-.12-1.32h1.11l3.51 9.29h-1.73z"
+         d="m 192.11,180.21 h -1.72 l 3.49,-9.29 h 1.1 l -0.11,1.32 z m 4.94,-2.12 h -5.06 v -1.33 h 5.06 z m -2.66,-5.85 -0.12,-1.32 h 1.11 l 3.51,9.29 h -1.73 z"
          class="cls-134" />
     </g>
   </g>
   <text
      xml:space="preserve"
      id="text85380"
-     x="83.22"
-     y="-6.49"
-     style="font-size:21.3333px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0;word-spacing:0;writing-mode:lr-tb;fill:#000"><tspan
+     x="73.220177"
+     y="-0.208333"
+     style="font-size:21.3333px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0;word-spacing:0;writing-mode:lr-tb;fill:#000000"><tspan
        id="tspan85378"
-       x="83.22"
-       y="-6.49"
-       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:21.3333px;font-family:Roboto;-inkscape-font-specification:&quot;Roboto Light&quot;;fill:#000">PDH High Current</tspan></text>
+       x="73.220177"
+       y="-0.208333"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:21.3333px;font-family:Roboto;-inkscape-font-specification:'Roboto Light';fill:#000000">PDH High Current</tspan></text>
 </svg>

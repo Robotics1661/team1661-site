@@ -2,10 +2,10 @@
 <svg
    id="Layer_1"
    data-name="Layer 1"
-   viewBox="0 0 161.02002 125.20133"
+   viewBox="0 0 151.02002 125.20133"
    version="1.1"
    sodipodi:docname="can.svg"
-   width="161.02002"
+   width="151.02002"
    height="125.20133"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -25,19 +25,20 @@
      fit-margin-left="40"
      fit-margin-right="10"
      fit-margin-bottom="30"
-     inkscape:zoom="7.3456792"
-     inkscape:cx="60.647898"
-     inkscape:cy="92.026888"
+     inkscape:zoom="2.5970898"
+     inkscape:cx="51.018644"
+     inkscape:cy="53.521446"
      inkscape:window-width="1920"
      inkscape:window-height="1020"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
-     showguides="true"
+     showguides="false"
      inkscape:guide-bbox="true"
      inkscape:snap-bbox="true"
-     inkscape:snap-bbox-midpoints="true">
+     inkscape:snap-bbox-midpoints="true"
+     width="156.02002px">
     <sodipodi:guide
        position="40,115.20133"
        orientation="0,111.02002"
@@ -348,14 +349,14 @@
        id="path4611" />
     <path
        id="polyline6489"
-       style="fill:none;stroke:#37b04a;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6,2;stroke-dashoffset:1.8"
+       style="fill:none;stroke:#37b04a;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:1.8"
        class="cls-84"
        transform="translate(-1704.4836,-959.42703)"
-       d="m 1747.1259,1061.84 h -57.1123 l 0,-48.4299"
+       d="m 1747.1259,1061.84 h -57.1123 v -48.4299"
        sodipodi:nodetypes="ccc" />
     <path
        id="polyline6491"
-       style="fill:none;stroke:#d5dc28;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:6.4;stroke-linecap:butt"
+       style="fill:none;stroke:#d5dc28;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:6, 2;stroke-dashoffset:6.4"
        class="cls-83"
        transform="translate(-1704.4836,-959.42703)"
        d="m 1747.1259,1057.48 h -52.6423 v -44.0699"
@@ -363,11 +364,11 @@
     <text
        xml:space="preserve"
        id="text85380"
-       x="33.249321"
+       x="23.249321"
        y="-10.208333"
        style="font-size:21.3333px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0;word-spacing:0;writing-mode:lr-tb;fill:#000000"><tspan
          id="tspan85378"
-         x="33.249321"
+         x="23.249321"
          y="-10.208333"
          style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:21.3333px;font-family:Roboto;-inkscape-font-specification:'Roboto Light';fill:#000000">PDH CAN</tspan></text>
     <path

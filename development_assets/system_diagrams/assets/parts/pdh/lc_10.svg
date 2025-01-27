@@ -2,10 +2,10 @@
 <svg
    id="Layer_1"
    data-name="Layer 1"
-   viewBox="0 0 204.3114 164.89999"
+   viewBox="0 0 194.3114 164.89999"
    version="1.1"
    sodipodi:docname="lc_10.svg"
-   width="204.3114"
+   width="194.3114"
    height="164.89999"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -25,16 +25,16 @@
      fit-margin-left="20"
      fit-margin-right="10"
      fit-margin-bottom="10"
-     inkscape:zoom="20.776718"
-     inkscape:cx="9.2170475"
-     inkscape:cy="36.483144"
+     inkscape:zoom="3.6728396"
+     inkscape:cx="123.20168"
+     inkscape:cy="84.40336"
      inkscape:window-width="1920"
      inkscape:window-height="1020"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g4651"
-     showguides="true"
+     inkscape:current-layer="Layer_1"
+     showguides="false"
      inkscape:guide-bbox="true"
      inkscape:snap-smooth-nodes="false"
      inkscape:snap-midpoints="false"
@@ -95,7 +95,7 @@
      sodipodi:nodetypes="ccccccccccc" />
   <polygon
      class="cls-120"
-     points="1782.4,915.85 1782.45,930.53 1773.88,939.2 1671.35,939.2 1671.35,910.76 1778.45,910.76 "
+     points="1782.45,930.53 1773.88,939.2 1671.35,939.2 1671.35,910.76 1778.45,910.76 1782.4,915.85 "
      id="polygon3759"
      transform="translate(-1589.14,-800.07)" />
   <rect
@@ -141,12 +141,12 @@
      id="path4363" />
   <polygon
      class="cls-124"
-     points="1660.11,836.57 1649.54,825.99 1649.54,836.57 "
+     points="1649.54,825.99 1649.54,836.57 1660.11,836.57 "
      id="polygon4365"
      transform="translate(-1589.14,-800.07)" />
   <polygon
      class="cls-124"
-     points="1660.68,825.99 1660.68,836 1650.68,825.99 "
+     points="1660.68,836 1650.68,825.99 1660.68,825.99 "
      id="polygon4367"
      transform="translate(-1589.14,-800.07)" />
   <rect
@@ -162,12 +162,12 @@
      id="path4371" />
   <polygon
      class="cls-29"
-     points="1660.11,850.72 1649.54,840.14 1649.54,850.72 "
+     points="1649.54,840.14 1649.54,850.72 1660.11,850.72 "
      id="polygon4373"
      transform="translate(-1589.14,-800.07)" />
   <polygon
      class="cls-29"
-     points="1660.68,840.14 1660.68,850.15 1650.68,840.14 "
+     points="1660.68,850.15 1650.68,840.14 1660.68,840.14 "
      id="polygon4375"
      transform="translate(-1589.14,-800.07)" />
   <rect
@@ -183,12 +183,12 @@
      id="path4379" />
   <polygon
      class="cls-124"
-     points="1660.11,864.79 1649.54,854.21 1649.54,864.79 "
+     points="1649.54,854.21 1649.54,864.79 1660.11,864.79 "
      id="polygon4381"
      transform="translate(-1589.14,-800.07)" />
   <polygon
      class="cls-124"
-     points="1660.68,854.21 1660.68,864.22 1650.68,854.21 "
+     points="1660.68,864.22 1650.68,854.21 1660.68,854.21 "
      id="polygon4383"
      transform="translate(-1589.14,-800.07)" />
   <rect
@@ -204,12 +204,12 @@
      id="path4387" />
   <polygon
      class="cls-29"
-     points="1660.11,878.94 1649.54,868.36 1649.54,878.94 "
+     points="1649.54,868.36 1649.54,878.94 1660.11,878.94 "
      id="polygon4389"
      transform="translate(-1589.14,-800.07)" />
   <polygon
      class="cls-29"
-     points="1660.68,868.36 1660.68,878.37 1650.68,868.36 "
+     points="1660.68,878.37 1650.68,868.36 1660.68,868.36 "
      id="polygon4391"
      transform="translate(-1589.14,-800.07)" />
   <rect
@@ -225,12 +225,12 @@
      id="path4395" />
   <polygon
      class="cls-124"
-     points="1660.16,893.12 1649.58,882.54 1649.58,893.12 "
+     points="1649.58,882.54 1649.58,893.12 1660.16,893.12 "
      id="polygon4397"
      transform="translate(-1589.14,-800.07)" />
   <polygon
      class="cls-124"
-     points="1660.73,882.54 1660.73,892.54 1650.73,882.54 "
+     points="1660.73,892.54 1650.73,882.54 1660.73,882.54 "
      id="polygon4399"
      transform="translate(-1589.14,-800.07)" />
   <rect
@@ -246,12 +246,12 @@
      id="path4403" />
   <polygon
      class="cls-29"
-     points="1660.16,907.27 1649.58,896.69 1649.58,907.27 "
+     points="1649.58,896.69 1649.58,907.27 1660.16,907.27 "
      id="polygon4405"
      transform="translate(-1589.14,-800.07)" />
   <polygon
      class="cls-29"
-     points="1660.73,896.69 1660.73,906.7 1650.73,896.69 "
+     points="1660.73,906.7 1650.73,896.69 1660.73,896.69 "
      id="polygon4407"
      transform="translate(-1589.14,-800.07)" />
   <rect
@@ -267,12 +267,12 @@
      id="path4411" />
   <polygon
      class="cls-124"
-     points="1660.16,921.34 1649.58,910.76 1649.58,921.34 "
+     points="1649.58,910.76 1649.58,921.34 1660.16,921.34 "
      id="polygon4413"
      transform="translate(-1589.14,-800.07)" />
   <polygon
      class="cls-124"
-     points="1660.73,910.76 1660.73,920.76 1650.73,910.76 "
+     points="1660.73,920.76 1650.73,910.76 1660.73,910.76 "
      id="polygon4415"
      transform="translate(-1589.14,-800.07)" />
   <rect
@@ -288,12 +288,12 @@
      id="path4419" />
   <polygon
      class="cls-29"
-     points="1660.16,935.49 1649.58,924.91 1649.58,935.49 "
+     points="1649.58,924.91 1649.58,935.49 1660.16,935.49 "
      id="polygon4421"
      transform="translate(-1589.14,-800.07)" />
   <polygon
      class="cls-29"
-     points="1660.73,924.91 1660.73,934.91 1650.73,924.91 "
+     points="1660.73,934.91 1650.73,924.91 1660.73,924.91 "
      id="polygon4423"
      transform="translate(-1589.14,-800.07)" />
   <path
@@ -598,11 +598,11 @@
   <text
      xml:space="preserve"
      id="text85380"
-     x="43.905407"
+     x="33.905407"
      y="-0.20802428"
      style="font-size:21.3333px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0;word-spacing:0;writing-mode:lr-tb;fill:#000000"><tspan
        id="tspan85378"
-       x="43.905407"
+       x="33.905407"
        y="-0.20802428"
        style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:21.3333px;font-family:Roboto;-inkscape-font-specification:'Roboto Light';fill:#000000">PDH Low Current</tspan></text>
   <g
@@ -615,7 +615,7 @@
        sodipodi:nodetypes="cc" />
     <path
        class="cls-189 cls-output-wire"
-       d="m 0,33.051542 15.238323,0"
+       d="M 0,33.051542 H 15.238323"
        id="path4061"
        style="fill:none;stroke:#231f20;stroke-width:8px;stroke-linecap:butt;stroke-linejoin:round"
        sodipodi:nodetypes="cc" />
@@ -630,7 +630,7 @@
        sodipodi:nodetypes="cc" />
     <path
        class="cls-100 cls-output-wire"
-       d="m 0,46.901542 15.178323,0"
+       d="M 0,46.901542 H 15.178323"
        id="path4396"
        style="fill:none;stroke:#e6282b;stroke-width:8px;stroke-linecap:butt;stroke-linejoin:round"
        sodipodi:nodetypes="cc" />
