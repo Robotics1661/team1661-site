@@ -1,0 +1,3 @@
+[submodule "team1661-site-docs"]
+	path = team1661-site-docs
+	url = https://github.com/Robotics1661/team1661-site-docs.git
