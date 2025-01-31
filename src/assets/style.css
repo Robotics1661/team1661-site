@@ -51,7 +51,7 @@ body {
 }
 
 .scroll-target {
-  scroll-margin-top: 12vh;
+  scroll-margin-top: calc(11vw * 1242 / 2023);
 }
 
 /* endregion basic setup */
@@ -587,6 +587,10 @@ table.award-table tr {
 
   body {
     gap: 5vh;
+  }
+
+  .scroll-target {
+    scroll-margin-top: calc((21vw * 1242 / 2023) + 2.8rem);
   }
 
   .nav-desktop {

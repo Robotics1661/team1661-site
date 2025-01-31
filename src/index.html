@@ -117,8 +117,16 @@
 
             setTimeout(() => {
               console.log(`[post] Setting hash to ${target}`);
-              location.hash = "";
-              location.hash = target;
+              if (location.hash === target) {
+                console.log("[post] Hash already set, scrolling to target");
+                document.querySelector(target).scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+                location.hash = target;
+              } else {
+                location.hash = target;
+              }
             }, 0);
           });
         }
@@ -192,11 +200,11 @@
           />
         </div>
         <ul class="nav-list">
-          <li><a href="#about-sec-target" class="scroll-targeting-button">About</a></li>
           <li><a href="#robots-target" class="scroll-targeting-button">Robots</a></li>
           <li><a href="#awards-target" class="scroll-targeting-button">Awards</a></li>
           <li><a href="#sponsors-target" class="scroll-targeting-button">Sponsors</a></li>
           <li><a href="#socials-target" class="scroll-targeting-button">Socials</a></li>
+          <li><a href="/docs/">Docs</a></li>
         </ul>
       </nav>
     </div>
@@ -213,11 +221,11 @@
           />
         </div>
         <ul class="nav-list">
-          <li><a href="#about-sec-target" class="scroll-targeting-button">About</a></li>
           <li><a href="#robots-target" class="scroll-targeting-button">Robots</a></li>
           <li><a href="#awards-target" class="scroll-targeting-button">Awards</a></li>
           <li><a href="#sponsors-target" class="scroll-targeting-button">Sponsors</a></li>
           <li><a href="#socials-target" class="scroll-targeting-button">Socials</a></li>
+          <li><a href="/docs/">Docs</a></li>
         </ul>
       </nav>
     </div>

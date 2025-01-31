@@ -1,0 +1,109 @@
+div.main {
+    text-align: center;
+    height: 100vh; /* Set height to fill the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+h1 {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+p {
+    margin-bottom: 0.25em;
+}
+
+a {
+    color: black;
+    text-decoration-line: underline;
+    text-decoration-thickness: .05vw;
+    text-decoration-style: solid;
+}
+
+a:hover, a:active {
+    color: #4078c0;
+    text-decoration-color: #2a578c;
+    transition: .3s;
+    transition-property: color, text-decoration-color;
+}
+
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    aspect-ratio: calc(2023 / 1242 * 6);
+    height: 4rem;
+
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo-area {
+    align-self: center;
+    width: 100%;
+    aspect-ratio: calc(2032 / 1242 * 6);
+    font-size: 1.9rem;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 2.5fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+}
+
+.logo {
+    grid-area: 1 / 2 / 2 / 3;
+    margin-left: 5%;
+    margin-right: 0;
+}
+
+.nav-streak {
+    position: revert;
+    grid-area: 1 / 1 / 2 / 4;
+    height: 100%;
+
+    --nav-streak-scaling: 2.5;
+    --width: 10%;
+    width: var(--width);
+    margin-left: calc((100% - var(--width)) / 2);
+}
+
+.nav-streak.a {
+    --width: calc(19.5% * var(--nav-streak-scaling));
+    width: var(--width);
+
+    --p: 20%; /* control the shape (can be percentage) */
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--p)) 100%, var(--p) 100%);
+}
+
+.nav-streak.b {
+    --width: calc(24% * var(--nav-streak-scaling));
+    width: var(--width);
+
+    --p: 25%;
+    clip-path: polygon(0 0, 100% 0, calc(100% - var(--p)) 100%, var(--p) 100%);
+}
+
+.nav-streak.c {
+    --width: calc(24% * var(--nav-streak-scaling));
+    width: var(--width);
+
+    --p: 10%;
+    clip-path: polygon(var(--p) 0, calc(100% - var(--p)) 0, 100% 100%, 0 100%);
+}
+
+/* For screens smaller than 850px */
+@media (max-width: 850px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+}
