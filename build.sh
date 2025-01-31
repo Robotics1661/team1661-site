@@ -52,7 +52,7 @@ fi
 
 
 echo "Initializing git submodules"
-git submodule update --init --recursive || echo_and_exit "Failed to initialize documentation repository"
+git submodule update --init --recursive team1661-site-docs || echo_and_exit "Failed to initialize documentation repository"
 
 
 echo "Copying source files"

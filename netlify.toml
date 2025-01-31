@@ -16,6 +16,8 @@
     # Default build command.
     command = "./build.sh"
 
+    environment = { NODE_VERSION = "20.9.0" }
+
 # Custom 404 page for docs
 [[redirects]]
 from = "/docs/*"
