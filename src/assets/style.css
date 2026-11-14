@@ -301,3 +301,6 @@ a.card:hover, .card:hover { transform: translateY(-5px); border-color: transpare
 }
 
 .nf-photo { width: min(340px, 80%); aspect-ratio: 4/3; object-fit: cover; margin: 0 auto 28px; border-radius: var(--radius); box-shadow: var(--shadow); transform: rotate(-2deg); border: 6px solid #fff; }
+
+.eligibility { display: inline-block; margin: 0 auto 1.6rem; padding: .6em 1.3em; border-radius: 999px; background: var(--ink); color: #fff; font-family: var(--head); font-size: 1.15rem; letter-spacing: .06em; text-transform: uppercase; }
+.eligibility b { color: #ff6a6a; }
