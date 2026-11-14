@@ -118,9 +118,6 @@ main { display: block; }
 @keyframes blink { 50% { opacity: 0; } }
 @keyframes fade { to { opacity: 0; } }
 .hero .lede { font-size: clamp(1.15rem, 2.2vw, 1.5rem); max-width: 36rem; color: rgba(255,255,255,.88); }
-.scroll-cue { position: absolute; z-index: 1; bottom: 36px; left: 50%; width: 28px; height: 46px; margin-left: -14px; border: 2px solid rgba(255,255,255,.6); border-radius: 16px; }
-.scroll-cue span { position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: #fff; animation: cue 1.8s infinite; }
-@keyframes cue { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(16px); } }
 
 .page-hero { position: relative; padding: calc(var(--header-h) + 72px) 0 72px; background: linear-gradient(180deg, rgba(13,14,18,.88), rgba(13,14,18,.97)), var(--hero-img, none) var(--hero-pos, center) / cover, var(--ink); color: #fff; overflow: hidden; }
 .page-hero::before { content: ""; position: absolute; right: -6%; top: 0; bottom: 0; width: 38%; background: linear-gradient(90deg, var(--red-dark), var(--red)); clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%); opacity: .9; }
