@@ -304,3 +304,12 @@ a.card:hover, .card:hover { transform: translateY(-5px); border-color: transpare
 
 .eligibility { display: inline-block; margin: 0 auto 1.6rem; padding: .6em 1.3em; border-radius: 999px; background: var(--ink); color: #fff; font-family: var(--head); font-size: 1.15rem; letter-spacing: .06em; text-transform: uppercase; }
 .eligibility b { color: #ff6a6a; }
+
+.inline-link { color: var(--red); border-bottom: 1px solid currentColor; }
+.inline-link:hover { color: var(--red-bright); }
+.inline-link.light { color: #fff; border-bottom-color: rgba(255,255,255,.4); }
+.inline-link.light:hover { color: #ff6a6a; }
+.footer-bk { margin-top: 10px; }
+.eligibility a { color: #fff; border-bottom: 1px solid rgba(255,255,255,.5); }
+.eligibility a:hover { color: #ff6a6a; }
+.sponsors-home { background: var(--tint); }
