@@ -1,403 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Mobile devices will integrate cleanly with the logo-->
-    <meta name="theme-color" content="#aa0000" />
-    <link rel="stylesheet" href="assets/style.css" />
-    <link rel="icon" href="assets/images/1661-logo.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!--USE FONT AWESOME FOR BRAND LOGOS - ACCOUNT REQUIRED-->
-    <script
-      src="https://kit.fontawesome.com/c4d7755cf4.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Team 1661</title>
-  </head>
-  <body>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Helper function to disable the translation animation on sections
-        function scrollFix(element) {
-          element.classList.add("scroll-fix");
-          element.classList.add("sf-instant");
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0d0e12" />
+<title>Team 1661 Griffitrons | FRC Robotics at The Buckley School</title>
+<meta name="description" content="Team 1661 Griffitrons is a FIRST Robotics Competition team at The Buckley School in Sherman Oaks, CA. Competing since 2005." />
+<meta property="og:title" content="Team 1661 Griffitrons | FRC Robotics at The Buckley School" />
+<meta property="og:description" content="Team 1661 Griffitrons is a FIRST Robotics Competition team at The Buckley School in Sherman Oaks, CA. Competing since 2005." />
+<meta property="og:image" content="assets/images/2024-bot.jpg" />
+<link rel="icon" href="assets/images/1661-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Team 1661 home"><span class="brand-streaks" aria-hidden="true"><i></i><i></i><i></i></span><img src="assets/images/1661-logo-white.png" alt="Team 1661" width="102" height="62" /></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav id="nav" aria-label="Main"><ul><li><a href="index.html" aria-current="page">Home</a></li><li><a href="robots.html">Robots</a></li><li><a href="awards.html">Awards</a></li><li><a href="outreach.html">Outreach</a></li><li><a href="sponsors.html">Sponsors</a></li><li><a href="media.html">Media</a></li></ul><a class="btn btn-sm" href="join.html">Join the Team</a></nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="hero-bg" role="img" aria-label="Eclipse, the 2024 Team 1661 robot"></div>
+  <div class="hero-shade"></div>
+  <div class="wrap hero-inner">
+    <p class="kicker light">FIRST Robotics Competition &middot; Team 1661</p>
+    <h1><span class="type" data-text="Griffitrons 1661">Griffitrons 1661</span></h1>
+    <p class="lede">Students from The Buckley School designing, building and programming competition robots &mdash; and growing STEAM in our community.</p>
+    <div class="btn-row"><a class="btn" href="robots.html">Meet our robots</a><a class="btn btn-ghost" href="join.html">Join the team</a></div>
+  </div>
+  <a class="scroll-cue" href="#stats" aria-label="Scroll down"><span></span></a>
+</section>
 
-          setTimeout(function() {
-            element.classList.remove("sf-instant");
-          }, 0);
-        }
+<section id="stats" class="stats"><div class="wrap stats-grid reveal">
+  <div><b data-count="2005" data-plain>2005</b><span>Competing since</span></div>
+  <div><b>15&ndash;30</b><span>Student members</span></div>
+  <div><b data-count="9">9</b><span>Awards won</span></div>
+  <div><b data-count="3">3</b><span>Recent robots</span></div>
+</div></section>
 
-        // Typing effect for the heading
-        const griffitronsH1 = document.createElement("h1", {
-          classList: ["intro-heading"],
-        })
-        const introPage = document.querySelector(".intro-page");
-        const introPage$noscript = introPage.querySelector("noscript");
-        introPage.insertBefore(griffitronsH1, introPage$noscript);
-        introPage$noscript.remove();
-        typeText(griffitronsH1, "Griffitrons 1661", 150);
+<section class="section"><div class="wrap split">
+  <div class="reveal">
+    <p class="kicker">About the team</p>
+    <h2>More than a robot.</h2>
+    <p>Team 1661 is a FIRST Robotics Competition team located at The Buckley&nbsp;School in Sherman&nbsp;Oaks,&nbsp;CA. We&rsquo;ve been competing in FRC since our team&rsquo;s inception in 2005 and have won multiple competition awards over the years.</p>
+    <p>Our team typically consists of 15&ndash;30 members, and we are working to expand both the team and our efforts to promote STEAM education in our school and local community.</p>
+    <a class="link-arrow" href="join.html">How to join <span aria-hidden="true">&rarr;</span></a>
+  </div>
+  <figure class="photo-frame reveal"><img src="assets/images/2023-bot.jpg" alt="Nova, the 2023 robot, reaching for a cone" loading="lazy" /><figcaption>Nova on the field, 2023</figcaption></figure>
+</div></section>
 
-        // Event listener for scrolling to "ABOUT OUR TEAM" section
-        const whoWeAreButton = document.querySelector("a.button");
-        whoWeAreButton.addEventListener("click", scrollToAboutTeam);
+<section class="section tint"><div class="wrap">
+  <div class="sec-head reveal"><p class="kicker">What we do</p><h2>Four ways we make an impact</h2></div>
+  <div class="cards four">
+    <a class="card reveal" href="robots.html"><span class="num">01</span><h3>Build</h3><p>Design, machine and wire a competition robot from scratch every season.</p><span class="more">Our robots &rarr;</span></a>
+    <a class="card reveal" href="awards.html"><span class="num">02</span><h3>Compete</h3><p>Regionals across the West &mdash; with engineering, design and spirit honors to show for it.</p><span class="more">Our awards &rarr;</span></a>
+    <a class="card reveal" href="outreach.html"><span class="num">03</span><h3>Inspire</h3><p>Sharing STEAM with our school and local community, one demo at a time.</p><span class="more">Outreach &rarr;</span></a>
+    <a class="card reveal" href="sponsors.html"><span class="num">04</span><h3>Partner</h3><p>Our sponsors make it possible. Meet the companies behind the machines.</p><span class="more">Sponsors &rarr;</span></a>
+  </div>
+</div></section>
 
-        // Event listener for revealing elements on scroll
-        window.addEventListener("scroll", function() {
-          reveal(false);
-        });
-        // Event listener for navbar shadow
-        window.addEventListener("scroll", navbarShadow);
+<section class="section"><div class="wrap">
+  <div class="sec-head reveal"><p class="kicker">Recent robots</p><h2>Three seasons, three machines</h2></div>
+  <div class="robot-strip">
+    <a class="robot-tile reveal" href="robots.html#eclipse"><img src="assets/images/2024-bot.jpg" alt="Eclipse, the 2024 robot" loading="lazy"/><div><span>2024</span><h3>Eclipse</h3></div></a>
+    <a class="robot-tile reveal" href="robots.html#nova"><img src="assets/images/2023-bot.jpg" alt="Nova, the 2023 robot" loading="lazy"/><div><span>2023</span><h3>Nova</h3></div></a>
+    <a class="robot-tile reveal" href="robots.html#eve"><img src="assets/images/2022-bot.jpg" alt="Eve, the 2022 robot" loading="lazy"/><div><span>2022</span><h3>Eve</h3></div></a>
+  </div>
+</div></section>
 
-        // Function for typing effect
-        function typeText(element, text, speed) {
-          let i = 0;
-          let isTyping = true;
+<section class="section tint"><div class="wrap split rev">
+  <div class="reveal">
+    <p class="kicker">Latest honor</p>
+    <h2>Excellence in Engineering</h2>
+    <p>In 2024 Team 1661 earned the <strong>Excellence in Engineering Award</strong> at the Los Angeles Regional &mdash; recognizing an elegant, innovative and well-executed engineering solution.</p>
+    <a class="link-arrow" href="awards.html">See every award <span aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="trophy reveal" aria-hidden="true"><span>2024</span><b>Excellence<br>in Engineering</b><i>Los Angeles Regional</i></div>
+</div></section>
 
-          const typingEffect = setInterval(function () {
-            if (isTyping) {
-              element.textContent += text.charAt(i);
-              i++;
+<section class="section"><div class="wrap">
+  <div class="sec-head reveal"><p class="kicker">Follow along</p><h2>See the team in action</h2><p class="sub">Photos, match footage and behind-the-scenes from the shop and the field.</p></div>
+  <div class="social-cards">
+    <a class="social-card reveal" href="https://www.instagram.com/griffitrons1661/" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg><span><b>Instagram</b><small>@griffitrons1661</small></span></a><a class="social-card reveal" href="https://x.com/buckleyrobotics" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg><span><b>X</b><small>@buckleyrobotics</small></span></a><a class="social-card reveal" href="https://www.facebook.com/buckleyrobotics/" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg><span><b>Facebook</b><small>buckleyrobotics</small></span></a><a class="social-card reveal" href="https://www.youtube.com/@buckleyrobotics" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg><span><b>YouTube</b><small>@buckleyrobotics</small></span></a>
+  </div>
+</div></section>
+<section class="cta"><div class="wrap reveal"><h2>Build something that matters.</h2><p>Whether you want to design, code, build, create or lead &mdash; there&rsquo;s a place for you on 1661.</p><div class="btn-row"><a class="btn btn-light" href="join.html">Join the team</a><a class="btn btn-ghost" href="sponsors.html">Partner with us</a></div></div></section>
 
-              if (i === text.length) {
-                isTyping = false;
-                /*setTimeout(function () {
-                  isTyping = true;
-                  element.textContent = "";
-                  i = 0;
-                }, 3000);*/
-              }
-            }/* else {
-              if (element.textContent.length > 0) {
-                element.textContent = element.textContent.slice(0, -1);
-              } else {
-                isTyping = true;
-                i = 0;
-              }
-            }*/
-          }, speed);
-        }
-
-        // Function to scroll to "ABOUT OUR TEAM" section
-        function scrollToAboutTeam(event) {
-          event.preventDefault();
-
-          const aboutSection = document.getElementById("about-sec-target");
-          aboutSection.scrollIntoView({
-            behavior: "smooth",
-            // Add this line to ensure smooth scrolling to the top of the section:
-            block: "start",
-          });
-        }
-
-        for (const scrollTargetButton of document.querySelectorAll(".scroll-targeting-button")) {
-          scrollTargetButton.addEventListener("click", (event) => {
-            const target = scrollTargetButton.getAttribute("href");
-            console.log(`[pre] Scrolling to ${target}`);
-
-            if (target.match("#.+-target") && document.querySelector(target+".scroll-target")) {
-              const sectionName = target.substring(1, target.length - 7);
-              const section = document.querySelector(`#${sectionName}`);
-
-              scrollFix(section);
-
-              if (sectionName === "socials") {
-                scrollFix(document.querySelector("#awards"));
-              }
-            }
-
-            event.preventDefault();
-
-            setTimeout(() => {
-              console.log(`[post] Setting hash to ${target}`);
-              if (location.hash === target) {
-                console.log("[post] Hash already set, scrolling to target");
-                document.querySelector(target).scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-                location.hash = target;
-              } else {
-                location.hash = target;
-              }
-            }, 0);
-          });
-        }
-
-        // check that there's actually a scroll target, and disable translation animations
-        if (location.hash && location.hash.match("#.+-target") && document.querySelector(location.hash+".scroll-target")) {
-          const sectionName = location.hash.substring(1, location.hash.length - 7);
-          const section = document.querySelector(`#${sectionName}`);
-          console.log(`[post] Loaded with hash, fixing scroll for ${sectionName}`);
-
-          scrollFix(section);
-        }
-
-        /*for (const scrollTarget of document.querySelectorAll(".scroll-target")) {
-          scrollTarget.textContent = `scroll target ${scrollTarget.id}`;
-        }*/
-
-        // Function to reveal elements on scroll
-        function reveal(instant) {
-          const reveals = document.querySelectorAll(".reveal");
-          const areaHeight = window.innerHeight;
-
-          for (const reveal of reveals) {
-            const areaTop = reveal.getBoundingClientRect().top;
-            const areaBottom = areaTop + reveal.clientHeight;
-
-            if (areaTop < areaHeight && areaBottom >= 0) {
-              reveal.classList.add("active");
-              reveal.classList.remove("secondary-inactive");
-            } else {
-              reveal.classList.add("secondary-inactive");
-            }
-
-            if (instant && areaTop < areaHeight) {
-              scrollFix(reveal);
-            }
-          }
-        }
-
-        reveal(true);
-
-        // Function to add shadow to navbar on scroll
-        function navbarShadow() {
-          const navBars = document.querySelectorAll(".nav-bar");
-
-          navBars.forEach(function (navBar) {
-            if (scrollY > 0) {
-              navBar.classList.add("nav-shadow");
-            } else {
-              navBar.classList.remove("nav-shadow");
-            }
-          });
-
-          if (scrollY <= 0) {
-            location.hash = "";
-          }
-        }
-      });
-    </script>
-
-    <div class="nav-desktop">
-      <nav class="nav-bar">
-        <div class="logo-area">
-          <div class="nav-streak a"></div>
-          <div class="nav-streak b"></div>
-          <div class="nav-streak c"></div>
-          <img
-            class="logo"
-            src="assets/images/1661-logo-white.png"
-            alt="Team 1661"
-          />
-        </div>
-        <ul class="nav-list">
-          <li><a href="#robots-target" class="scroll-targeting-button">Robots</a></li>
-          <li><a href="#awards-target" class="scroll-targeting-button">Awards</a></li>
-          <li><a href="#sponsors-target" class="scroll-targeting-button">Sponsors</a></li>
-          <li><a href="#socials-target" class="scroll-targeting-button">Socials</a></li>
-          <li><a href="/docs/">Docs</a></li>
-        </ul>
-      </nav>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <img src="assets/images/1661-logo-white.png" alt="Team 1661" width="120" height="73" />
+      <p>Griffitrons 1661 &mdash; a FIRST Robotics Competition team at The Buckley School in Sherman Oaks, CA. Competing since 2005.</p>
     </div>
-    <div class="nav-mobile">
-      <nav class="nav-bar">
-        <div class="logo-area">
-          <div class="nav-streak a"></div>
-          <div class="nav-streak b"></div>
-          <div class="nav-streak c"></div>
-          <img
-            class="logo"
-            src="assets/images/1661-logo-white.png"
-            alt="Team 1661"
-          />
-        </div>
-        <ul class="nav-list">
-          <li><a href="#robots-target" class="scroll-targeting-button">Robots</a></li>
-          <li><a href="#awards-target" class="scroll-targeting-button">Awards</a></li>
-          <li><a href="#sponsors-target" class="scroll-targeting-button">Sponsors</a></li>
-          <li><a href="#socials-target" class="scroll-targeting-button">Socials</a></li>
-          <li><a href="/docs/">Docs</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <section class="intro-page">
-      <!--<h1 class="intro-heading"></h1>-->
-      <!--the above will be automatically inserted by JS-->
-      <noscript>
-        <h1 class="intro-heading">Griffitrons 1661</h1>
-      </noscript>
-      <a href="#about-sec-target" class="button scroll-targeting-button">Who We Are</a>
-    </section>
-
-    <section class="reveal" id="about-sec">
-      <div id="about-sec-target" class="scroll-target"></div>
-      <div>
-        <h2 class="about-our-team">ABOUT OUR TEAM</h2>
-        <hr />
-
-        <p class="about-writing">
-          Team 1661 is a FIRST Robotics Competition team located at the Buckley&nbsp;School
-          in Sherman&nbsp;Oaks,&nbsp;CA. We've been competing in FRC since our
-          team's inception in 2005 and have won multiple competition awards over
-          the years. Our team typically consists of 15-30 members, and we are
-          working to expand both the team and our efforts to promote STEAM
-          education in our school and local community.
-        </p>
-      </div>
-    </section>
-
-    <section id="robots" class="reveal">
-      <div id="robots-target" class="scroll-target"></div>
-      <h2 class="robot-head">Our Previous Robots</h2>
-      <hr />
-      <div class="robot-captioned-photos">
-        <div class="robot-captioned-photo">
-          <img class="robot-photo wider" src="assets/images/2024-bot.jpg" alt="2024 robot, Eclipse, in the pit"/>
-          <div class="robot-text">
-            <h3>2024</h3>
-            <h4>Eclipse</h4>
-            <a href="https://github.com/Robotics1661/1661-RobotCode-2024"><span class="fa-brands fa-github fa-sm"></span> Code</a>
-          </div>
-        </div>
-        <div class="robot-captioned-photo">
-          <img class="robot-photo wide" src="assets/images/2023-bot.png" alt="2023 robot, Nova, picking up a cone"/>
-          <div class="robot-text">
-            <h3>2023</h3>
-            <h4>Nova</h4>
-            <a href="https://github.com/Robotics1661/1661-RobotCode-2023"><span class="fa-brands fa-github fa-sm"></span> Code</a>
-          </div>
-        </div>
-        <div class="robot-captioned-photo">
-          <img class="robot-photo" src="assets/images/2022-bot.jpg" alt="2022 robot, Eve, intaking a ball"/>
-          <div class="robot-text">
-            <h3>2022</h3>
-            <h4>Eve</h4>
-            <a href="https://github.com/Robotics1661/1661-Code-2022"><span class="fa-brands fa-github fa-sm"></span> Code</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="awards" class="reveal">
-      <div id="awards-target" class="scroll-target"></div>
-      <h2 class="our-awards">Our Awards</h2>
-      <hr />
-      <div class="award-text">
-        <table class="award-table">
-          <tbody>
-          <tr><td class="award-year">2024</td><td class="award-desc"> Excellence in Engineering Award - Los Angeles Regional</td></tr>
-          <tr><td class="award-year">2023</td><td class="award-desc"> Dean's List Award Finalist - Sienna Simantob</td></tr>
-          <tr><td class="award-year">2017</td><td class="award-desc"> Industrial Design Award - Hawaii Regional</td></tr>
-          <tr><td class="award-year">2017</td><td class="award-desc"> Hawaii Regional Finalist</td></tr>
-          <tr><td class="award-year">2015</td><td class="award-desc"> Team Spirit Award - SCRRF Fall Classic</td></tr>
-          <tr><td class="award-year">2012</td><td class="award-desc"> Team Spirit Award - SCRRF Fall Classic</td></tr>
-          <tr><td class="award-year">2012</td><td class="award-desc"> Industrial Design Award - San Diego Regional</td></tr>
-          <tr><td class="award-year">2012</td><td class="award-desc"> Excellence in Engineering Award - Las Vegas Regional Classic</td></tr>
-          <tr><td class="award-year">2005</td><td class="award-desc"> Judges Award - Las Vegas Regional Classic</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section id="sponsors" class="reveal reveal-stationary">
-      <div id="sponsors-target" class="scroll-target"></div>
-      <h2 class="sponsors-head">Sponsors</h2>
-      <hr />
-      <div class="sponsors-captioned-items">
-        <div class="sponsors-captioned-item">
-          <img class="sponsors-photo" src="assets/images/sponsor-logos/scs-logo.svg" alt="SendCutSend"/>
-          <div class="sponsors-text">
-            <a href="https://www.sendcutsend.com">Website</a>
-          </div>
-        </div>
-        <div class="sponsors-captioned-item">
-          <img class="sponsors-photo" src="assets/images/sponsor-logos/cnc-madness-logo.svg" alt="CNCmadness"/>
-          <div class="sponsors-text">
-            <a href="https://www.cncmadness.com">Website</a>
-          </div>
-        </div>
-        <div class="sponsors-captioned-item">
-          <img class="sponsors-photo" src="assets/images/sponsor-logos/fabworks-logo.svg" alt="Fabworks"/>
-          <div class="sponsors-text">
-            <a href="https://www.fabworks.com">Website</a>
-            <p>Promo code FRC1661</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="socials" class="reveal reveal-stationary">
-      <div id="socials-target" class="scroll-target"></div>
-      <h2 class="socials-head">Socials</h2>
-      <hr />
-      <div class="social-logos">
-        <a href="https://github.com/Robotics1661" target="_blank"
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="32"
-            width="31"
-            viewBox="0 0 496 512"
-            class="socials-icon github"
-          >
-            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-              stroke="currentColor"
-              fill="currentColor"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://youtube.com/@buckleyrobotics?si=b8yHWWLd63viHncV"
-          target="_blank"
-          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="socials-icon youtube">
-            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"
-              stroke="currentColor"
-              fill="currentColor"
-            /></svg
-        ></a>
-        <a
-          href="https://www.instagram.com/griffitrons1661/?hl=en"
-          target="_blank"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="32"
-            width="28"
-            viewBox="0 0 448 512"
-            class="socials-icon instagram"
-          >
-            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-              stroke="currentColor"
-              fill="currentColor"
-            />
-          </svg>
-        </a>
-        <a href="https://www.tiktok.com/@griffitron1661" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="socials-icon tiktok">
-            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"
-              stroke="currentColor"
-              fill="currentColor"
-            />
-          </svg>
-        </a>
-      </div>
-    </section>
-  </body>
+    <div><h4>Explore</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="robots.html">Robots</a></li><li><a href="awards.html">Awards</a></li><li><a href="outreach.html">Outreach</a></li><li><a href="sponsors.html">Sponsors</a></li><li><a href="media.html">Media</a></li><li><a href="join.html">Join</a></li></ul></div>
+    <div><h4>Follow along</h4><div class="social-row"><a href="https://www.instagram.com/griffitrons1661/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a><a href="https://x.com/buckleyrobotics" target="_blank" rel="noopener" aria-label="X"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a><a href="https://www.facebook.com/buckleyrobotics/" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg></a><a href="https://www.youtube.com/@buckleyrobotics" target="_blank" rel="noopener" aria-label="YouTube"><svg class="icon" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg></a><a href="https://github.com/Robotics1661" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></a><a href="https://www.tiktok.com/@griffitron1661" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg></a></div></div>
+  </div>
+  <div class="wrap footer-base"><span>&copy; <span id="yr">2025</span> Team 1661 Griffitrons</span><span>Gracious Professionalism&reg; &middot; FIRST&reg; is a registered trademark of FIRST.</span></div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
 </html>
