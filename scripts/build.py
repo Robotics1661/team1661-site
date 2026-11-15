@@ -26,6 +26,14 @@ SEARCH_SVG = ('<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusabl
               '7.5 0 0 1 0 15zM16 16l5 5"/></svg>')
 SEARCH_BTN = ('<button class="search-toggle" type="button" aria-label="Search the site" aria-haspopup="dialog">'
               + SEARCH_SVG + '</button>')
+SUN = ('<svg class="icon sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" '
+       'stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>')
+MOON = ('<svg class="icon moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" '
+        'stroke-width="2" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>')
+THEME_BTN = ('<button class="theme-toggle" type="button" aria-label="Switch to light mode">' + SUN + MOON + '</button>')
+THEME_SCRIPT = ('<script>document.documentElement.classList.add("js");try{if(localStorage.getItem("theme")==="light")'
+                'document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>')
+OLD_JS_SCRIPT = '<script>document.documentElement.classList.add("js")</script>'
 TOP_PAGES = ["index", "robots", "awards", "outreach", "sponsors", "media", "join"]
 CRUMB_NAMES = {"robots": "Robots", "awards": "Awards", "outreach": "Outreach", "sponsors": "Sponsors",
                "media": "Media & Contact", "join": "Join the Team"}
@@ -45,6 +53,10 @@ def patch_existing():
         if "search-toggle" not in t:
             t = t.replace("</nav>\n  </div>\n</header>", "</nav>\n    " + SEARCH_BTN + "\n  </div>\n</header>", 1)
             t = t.replace('<nav id="nav" aria-label="Main">', '<nav id="nav" aria-label="Main">', 1)
+        if "theme-toggle" not in t:
+            t = t.replace(SEARCH_BTN, SEARCH_BTN + "\n    " + THEME_BTN, 1)
+        if "data-theme" not in t:
+            t = t.replace(OLD_JS_SCRIPT, THEME_SCRIPT, 1)
         if "assets/search.js" not in t:
             t = t.replace('<script src="assets/site.js"></script>',
                           '<script src="assets/site.js"></script>\n<script src="assets/search.js" defer></script>', 1)
@@ -148,7 +160,7 @@ def head(title, desc, path, depth, image=None, image_alt=None, ld=(), noindex=Fa
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="{pre}assets/style.css" />
-<script>document.documentElement.classList.add("js")</script>
+{THEME_SCRIPT}
 </head>
 <body class="">
 """

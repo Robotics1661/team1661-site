@@ -138,3 +138,19 @@
   lb.addEventListener("click", function (e) { if (e.target !== lbImg) closeLb(); });
   doc.addEventListener("keydown", function (e) { if (e.key === "Escape" && lb.classList.contains("open")) closeLb(); });
 })();
+
+/* ---------- theme toggle (dark is the default) ---------- */
+(function () {
+  "use strict";
+  var btn = document.querySelector(".theme-toggle"), root = document.documentElement;
+  if (!btn) return;
+  function isLight() { return root.getAttribute("data-theme") === "light"; }
+  function sync() { btn.setAttribute("aria-label", isLight() ? "Switch to dark mode" : "Switch to light mode"); }
+  btn.addEventListener("click", function () {
+    var next = isLight() ? "dark" : "light";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    sync();
+  });
+  sync();
+})();
