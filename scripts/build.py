@@ -14,6 +14,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import localize  # noqa: E402
 from repos import GH, GROUPS, REPOS  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -34,8 +35,8 @@ THEME_BTN = ('<button class="theme-toggle" type="button" aria-label="Switch to l
 THEME_SCRIPT = ('<script>document.documentElement.classList.add("js");try{if(localStorage.getItem("theme")==="light")'
                 'document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>')
 OLD_JS_SCRIPT = '<script>document.documentElement.classList.add("js")</script>'
-TOP_PAGES = ["index", "robots", "awards", "outreach", "sponsors", "media", "join"]
-CRUMB_NAMES = {"robots": "Robots", "awards": "Awards", "outreach": "Outreach", "sponsors": "Sponsors",
+TOP_PAGES = ["index", "robots", "awards", "sponsors", "media", "join"]
+CRUMB_NAMES = {"robots": "Robots", "awards": "Awards", "sponsors": "Sponsors",
                "media": "Media & Contact", "join": "Join the Team"}
 
 
@@ -321,10 +322,10 @@ def code_index(top, bottom, gh_icon):
 
 def search_page(top, bottom):
     title = "Search | Team 1661 Griffitrons"
-    desc = "Search the Team 1661 website: robots, awards, outreach, sponsors and our open-source code."
+    desc = "Search the Team 1661 website: robots, awards, sponsors and our open-source code."
     items = "".join(f'<li><a href="{E(u)}">{E(t)}</a></li>' for t, u in all_pages_for_noscript())
     body = f'''<main id="main">
-<section class="page-hero"><div class="wrap"><p class="kicker">Search</p><h1>Search the site</h1><p class="lede">Robots, awards, outreach, sponsors and code.</p></div></section>
+<section class="page-hero"><div class="wrap"><p class="kicker">Search</p><h1>Search the site</h1><p class="lede">Robots, awards, sponsors and code.</p></div></section>
 <section class="section"><div class="wrap narrow">
   <form class="search-form" role="search" action="search.html" method="get">
     <label class="sr" for="q">Search</label>
@@ -428,14 +429,64 @@ def build_index():
 
 
 def sitemap():
-    pri = {"index": "1.0", "robots": "0.9", "join": "0.9", "awards": "0.8", "outreach": "0.7", "sponsors": "0.7", "media": "0.6"}
-    rows = [("/", "1.0")] + [(f"/{n}.html", pri[n]) for n in TOP_PAGES[1:]] + [("/code.html", "0.8")]
-    rows += [(f"/code/{r['slug']}.html", "0.6" if r["group"] == "robot" else "0.5") for r in REPOS]
-    xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for path, p in rows:
-        xml.append(f"  <url><loc>{SITE}{path}</loc><lastmod>{TODAY}</lastmod><priority>{p}</priority></url>")
+    pri = {"index": "1.0", "robots": "0.9", "join": "0.9", "awards": "0.8", "sponsors": "0.7", "media": "0.6"}
+    rows = [("index.html", "1.0")] + [(f"{n}.html", pri[n]) for n in TOP_PAGES[1:]] + [("code.html", "0.8")]
+    rows += [(f"code/{r['slug']}.html", "0.6" if r["group"] == "robot" else "0.5") for r in REPOS]
+    xml = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+    for rel_path, p in rows:
+        alts = "".join(f'<xhtml:link rel="alternate" hreflang="{localize.HREFLANG[c]}" href="{SITE}{localize.lang_path(rel_path, c)}"/>'
+                       for c in ("en", "es", "zh"))
+        alts += f'<xhtml:link rel="alternate" hreflang="x-default" href="{SITE}{localize.lang_path(rel_path, "en")}"/>'
+        for c in ("en", "es", "zh"):
+            xml.append(f"  <url><loc>{SITE}{localize.lang_path(rel_path, c)}</loc><lastmod>{TODAY}</lastmod><priority>{p}</priority>{alts}</url>")
     xml.append("</urlset>")
     (SRC / "sitemap.xml").write_text("\n".join(xml) + "\n", encoding="utf-8")
+
+
+# ---------------------------------------------------------------- translated search indexes
+HOME_TITLE = {"es": "Inicio", "zh": "首页"}
+EXTRA_KEYS = {"es": "código abierto repositorios github", "zh": "开源 代码 仓库 github"}
+
+
+def build_index_lang(lang, english):
+    from bs4 import BeautifulSoup
+    root = SRC / lang
+    out = []
+    for e in english:
+        u = e["u"]
+        if e["c"] == "Robot":
+            soup = BeautifulSoup((root / "robots.html").read_text(encoding="utf-8"), "html.parser")
+            art = soup.find("article", id=u.split("#")[1])
+            h2 = art.find("h2")
+            para = h2.find_next_sibling("p")
+            tags = " ".join(clean(li.get_text(" ")) for li in art.find_all("li"))
+            out.append({"t": clean(h2.get_text(" ")) + " (" + clean(art.select_one("p.kicker").get_text(" ")) + ")", "u": u,
+                        "d": clean(para.get_text(" ")) if para else "", "k": (e["k"] + " " + tags).strip(), "b": "", "c": "Robot"})
+        elif e["c"] == "Code":
+            soup = BeautifulSoup((root / u).read_text(encoding="utf-8"), "html.parser")
+            tags = " ".join(clean(li.get_text(" ")) for li in soup.select("ul.tags li"))
+            hl = " ".join(clean(li.get_text(" ")) for li in soup.select("ul.checks li"))
+            ne = {"t": clean(soup.h1.get_text(" ")), "u": u, "d": clean(soup.select_one(".lede").get_text(" ")),
+                  "k": (e["k"] + " " + tags).strip(), "b": hl, "c": "Code"}
+            if e.get("n"):
+                ne["n"] = 1
+            out.append(ne)
+        else:
+            t = (root / u).read_text(encoding="utf-8")
+            title = clean(re.search(r"<title>(.*?)</title>", t, re.S).group(1)).split(" | ")[0]
+            if u == "index.html":
+                title = HOME_TITLE[lang]
+            desc = clean(BeautifulSoup(t, "html.parser").find("meta", attrs={"name": "description"})["content"])
+            if u == "code.html":
+                out.append({"t": title, "u": u, "d": desc, "k": e["k"] + " " + EXTRA_KEYS[lang], "b": "", "c": "Page"})
+                continue
+            px = Text()
+            px.feed(t)
+            out.append({"t": title, "u": u, "d": desc, "k": " ".join(px.heads[:20]),
+                        "b": " ".join(px.chunks)[:2200], "c": "Page"})
+    (SRC / "assets" / f"search-index.{lang}.json").write_text(json.dumps(out, separators=(",", ":"), ensure_ascii=False), encoding="utf-8")
+    print(f"search index ({lang}):", len(out), "entries")
 
 
 HEADERS = """# Netlify headers (see https://docs.netlify.com/routing/headers/)
@@ -457,9 +508,23 @@ HEADERS = """# Netlify headers (see https://docs.netlify.com/routing/headers/)
 /assets/*.js
   Cache-Control: public, max-age=3600
 
-/assets/search-index.json
+/assets/*.json
   Cache-Control: public, max-age=3600
 """
+
+REDIRECTS = """# Unknown pages in each language get that language's 404 page
+/es/*  /es/404.html  404
+/zh/*  /zh/404.html  404
+"""
+
+
+def decorate_english():
+    """Language menu, hreflang links and language detection on every English page."""
+    for p, rel_path in localize.english_pages():
+        t = p.read_text(encoding="utf-8")
+        d = localize.decorate_english(t, rel_path)
+        if d != t:
+            p.write_text(d, encoding="utf-8")
 
 
 def main():
@@ -469,10 +534,22 @@ def main():
         repo_page(r, top, bottom, gh_icon)
     code_index(top, bottom, gh_icon)
     search_page(top, bottom)
-    build_index()
+    decorate_english()
+    english = build_index()
     sitemap()
     (SRC / "_headers").write_text(HEADERS, encoding="utf-8")
+    (SRC / "_redirects").write_text(REDIRECTS, encoding="utf-8")
     print("generated", len(REPOS), "repo pages + code.html + search.html + sitemap + _headers")
+    # translated copies of every page (see scripts/localize.py and scripts/i18n/)
+    allow = "--allow-missing" in sys.argv
+    for lang in localize.TARGETS:
+        table = localize.load_table(lang)
+        bad = localize.validate(lang, table)
+        if bad:
+            raise SystemExit(f"{lang}: marker mismatch in {len(bad)} strings, first: {bad[0][:90]}")
+        n, missing = localize.build_lang(lang, table, allow_missing=allow)
+        print(f"{lang}: wrote {n} pages" + (f" ({len(missing)} strings still in English)" if missing else ""))
+        build_index_lang(lang, english)
 
 
 if __name__ == "__main__":

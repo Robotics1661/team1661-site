@@ -17,5 +17,5 @@
 /assets/*.js
   Cache-Control: public, max-age=3600
 
-/assets/search-index.json
+/assets/*.json
   Cache-Control: public, max-age=3600

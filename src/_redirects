@@ -1,0 +1,3 @@
+# Unknown pages in each language get that language's 404 page
+/es/*  /es/404.html  404
+/zh/*  /zh/404.html  404

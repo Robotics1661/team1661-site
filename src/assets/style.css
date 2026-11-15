@@ -531,3 +531,45 @@ mark { background: #ffe1a8; color: #0d0e12; border-radius: 3px; padding: 0 .1em;
 :root:not([data-theme="light"]) .theme-toggle .sun { display: block; }
 :root:not([data-theme="light"]) .theme-toggle .moon { display: none; }
 @media (prefers-reduced-motion: no-preference) { body, .card, .section.tint, .field, .search-panel { transition-property: background-color, border-color, color, box-shadow, transform; transition-duration: .25s; } }
+
+/* the hidden attribute must always win over component display rules */
+[hidden] { display: none !important; }
+
+/* ---------- language menu ---------- */
+.lang-menu { position: relative; flex: none; }
+.lang-menu summary { list-style: none; display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 10px; border-radius: 10px; cursor: pointer; color: rgba(255,255,255,.85); font: 600 .95rem var(--head); letter-spacing: .08em; text-transform: uppercase; user-select: none; transition: color .2s, background .2s; }
+.lang-menu summary::-webkit-details-marker { display: none; }
+.lang-menu summary:hover, .lang-menu[open] summary { color: #fff; background: rgba(255,255,255,.1); }
+.lang-menu summary .icon { width: 22px; height: 22px; }
+.lang-menu summary:focus-visible { outline: 2px solid var(--red-bright); outline-offset: 2px; }
+.lang-list { position: absolute; right: 0; top: calc(100% + 8px); z-index: 1100; min-width: 168px; margin: 0; padding: 6px; list-style: none; background: #15171d; border: 1px solid rgba(255,255,255,.14); border-radius: 12px; box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+.lang-list a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: .55em .8em; border-radius: 8px; color: #e9ebf0; font-family: var(--body); font-size: 1rem; text-transform: none; letter-spacing: 0; }
+.lang-list a:hover, .lang-list a:focus-visible { background: rgba(255,255,255,.1); color: #fff; }
+.lang-list a[aria-current="true"] { color: #fff; font-weight: 600; }
+.lang-list a[aria-current="true"]::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red-bright); }
+@media (max-width: 960px) { .lang-menu summary span { display: none; } .lang-menu summary { padding: 0 8px; } }
+
+/* ---------- translations ---------- */
+html[lang^="zh"] { --head: 'Barlow Condensed', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC', sans-serif; --body: 'Barlow', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC', system-ui, sans-serif; }
+html[lang^="zh"] body, html[lang^="zh"] body * { font-style: normal !important; }
+html[lang^="zh"] h1, html[lang^="zh"] h2, html[lang^="zh"] h3, html[lang^="zh"] .btn, html[lang^="zh"] .kicker, html[lang^="zh"] nav ul a, html[lang^="zh"] .chip, html[lang^="zh"] .link-arrow { letter-spacing: .04em; font-weight: 700; }
+html[lang^="zh"] body { line-height: 1.8; }
+html[lang^="zh"] .lede, html[lang^="zh"] p { text-wrap: pretty; }
+/* longer Spanish labels need a little less room per nav item */
+html[lang="es"] nav ul a { font-size: 1.02rem; letter-spacing: .06em; padding-inline: .55em; }
+html[lang="es"] nav { gap: 14px; }
+html[lang="es"] .btn-sm { letter-spacing: .05em; }
+
+/* Spanish labels are longer, so the menu collapses a little earlier */
+@media (min-width: 961px) and (max-width: 1120px) {
+  html[lang="es"] .nav-toggle { display: flex; }
+  html[lang="es"] nav { position: fixed; top: var(--header-h); left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--dark); padding: 12px 20px 24px; max-height: 0; overflow: hidden; visibility: hidden; opacity: 0; transition: opacity .25s, max-height .3s, visibility .3s; border-bottom: 1px solid rgba(255,255,255,.1); }
+  html[lang="es"] .site-header.open nav { max-height: 90vh; visibility: visible; opacity: 1; }
+  html[lang="es"] nav ul { flex-direction: column; }
+  html[lang="es"] nav ul a { font-size: 1.5rem; padding: .55em 0; border-bottom: 1px solid rgba(255,255,255,.08); border-radius: 0; }
+  html[lang="es"] nav ul a::after { display: none; }
+  html[lang="es"] nav .btn { margin-top: 18px; justify-content: center; }
+  html[lang="es"] .search-toggle { margin-left: auto; }
+  html[lang="es"] .lang-menu summary span { display: none; }
+  html[lang="es"] .lang-menu summary { padding: 0 8px; }
+}
