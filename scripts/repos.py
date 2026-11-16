@@ -32,8 +32,8 @@ REPOS = [
     ),
     dict(
         repo="1661-RobotCode-2025", group="robot", year="2025", season="REEFSCAPE",
-        title="2025 Robot Code", lang="Java",
-        summary="Code for our 2025 Reefscape robot. An elevator and a wrist score coral at different heights, a climber handles the endgame, and a swerve drivetrain with Limelight vision drives up and lines up on the reef.",
+        title="2025 Robot Code (Echo)", lang="Java",
+        summary="Code for Echo, our 2025 Reefscape robot. An elevator and a wrist score coral at different heights, a climber handles the endgame, and a swerve drivetrain with Limelight vision drives up and lines up on the reef.",
         highlights=[
             "Swerve drivetrain on CTRE Phoenix 6 with Tuner X generated constants",
             "Elevator, wrist, intake and climber subsystems, with manual, move-to and calibration commands",
@@ -43,7 +43,7 @@ REPOS = [
         ],
         tags=["Java", "Swerve drive", "Phoenix 6", "PathPlanner", "Limelight", "Elevator"],
         stack=[("Language", "Java 17"), ("Framework", "WPILib 2025 (command-based)"), ("Vendor libraries", "Phoenix 6, PathPlanner, REVLib")],
-        quick=GRADLE_CMDS, robot="r2025", image=None, license="MIT",
+        quick=GRADLE_CMDS, robot="echo", image=None, license="MIT",
         related=["1661-robotcode-2026", "1661-robotcode-2024"],
     ),
     dict(

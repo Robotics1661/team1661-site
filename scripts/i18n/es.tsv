@@ -84,8 +84,6 @@ RobotPy	=
 Swerve drive	Tracción swerve
 Phoenix 6	=
 2025 · REEFSCAPE	=
-2025 Robot Code	Código del robot 2025
-Code for our 2025 Reefscape robot.	Código de nuestro robot Reefscape de 2025.
 Java	=
 PathPlanner	=
 2024 · CRESCENDO	=
@@ -275,7 +273,6 @@ Flywheel shooter	Lanzador de volante de inercia
 View the code	Ver el código
 About the code	Sobre el código
 2025 photo coming soon	Foto de 2025 próximamente
-2025 robot	Robot 2025
 Built for Reefscape. An elevator and a wrist let it score coral at different heights, and a climber handles the endgame. It runs on swerve, and a Limelight camera helps it drive up and line up on the reef automatically.	Construido para Reefscape. Un elevador y una muñeca le permiten anotar coral a distintas alturas, y un escalador se encarga del tramo final. Usa tracción swerve, y una cámara Limelight le ayuda a acercarse y alinearse con el arrecife de forma automática.
 Wrist	Muñeca
 Coral intake	Recolector de coral
@@ -399,9 +396,7 @@ Java 17	=
 WPILib 2024 (command-based)	WPILib 2024 (basado en comandos)
 Phoenix 5 and 6, PathPlanner, REVLib, SDS swerve library	Phoenix 5 y 6, PathPlanner, REVLib, biblioteca swerve de SDS
 1661-RobotCode-2024: Code for Eclipse, our 2024 Crescendo robot, which won the Excellence in Engineering Award at the Los Angeles Regional. It shoots game...	1661-RobotCode-2024: Código de Eclipse, nuestro robot Crescendo de 2024, que ganó el Premio a la Excelencia en Ingeniería en el Regional de Los Ángeles. Dispara piezas del juego...
-2025 Robot Code | Team 1661 Griffitrons	Código del robot 2025 | Team 1661 Griffitrons
 Code · 2025 · REEFSCAPE	Código · 2025 · REEFSCAPE
-Code for our 2025 Reefscape robot. An elevator and a wrist score coral at different heights, a climber handles the endgame, and a swerve drivetrain with Limelight vision drives up and lines up on the reef.	Código de nuestro robot Reefscape de 2025. Un elevador y una muñeca anotan coral a distintas alturas, un escalador se encarga del tramo final y una tracción swerve con visión Limelight se acerca y se alinea con el arrecife.
 1661-RobotCode-2025	=
 Elevator, wrist, intake and climber subsystems, with manual, move-to and calibration commands	Subsistemas de elevador, muñeca, recolector y escalador, con comandos manuales, de movimiento a posición y de calibración
 Automatic coral intake and an auto drive, aim and score command	Recolección automática de coral y un comando de conducción, apuntado y anotación automáticos
@@ -409,7 +404,6 @@ PathPlanner autos, including a command that pathfinds, runs a command, then foll
 SysId characterization commands and an autonomous debugger for tuning	Comandos de caracterización SysId y un depurador de autónomo para ajustes
 WPILib 2025 (command-based)	WPILib 2025 (basado en comandos)
 Phoenix 6, PathPlanner, REVLib	=
-1661-RobotCode-2025: Code for our 2025 Reefscape robot. An elevator and a wrist score coral at different heights, a climber handles the endgame, and a...	1661-RobotCode-2025: Código de nuestro robot Reefscape de 2025. Un elevador y una muñeca anotan coral a distintas alturas, un escalador se encarga del tramo final y una...
 2026 Robot Code | Team 1661 Griffitrons	Código del robot 2026 | Team 1661 Griffitrons
 Code · 2026 · REBUILT	Código · 2026 · REBUILT
 Code for our 2026 robot, which won the Creativity Award at the Ventura District event. It is written in Python with RobotPy, a change from the Java we used in earlier years.	Código de nuestro robot de 2026, que ganó el Premio a la Creatividad en el evento del Distrito de Ventura. Está escrito en Python con RobotPy, un cambio respecto al Java que usamos en años anteriores.
@@ -499,3 +493,10 @@ Available in English, Spanish and Simplified Chinese, picked automatically from 
 Dark mode by default, with a toggle for light mode	Modo oscuro por defecto, con un interruptor para el modo claro
 Install the build dependency	Instalar la dependencia de compilación
 Rebuild the generated pages	Regenerar las páginas generadas
+2025 Robot Code (Echo)	Código del robot 2025 (Echo)
+Code for Echo, our 2025 Reefscape robot.	Código de Echo, nuestro robot Reefscape de 2025.
+Echo	=
+Echo was built for Reefscape. An elevator and a wrist let it score coral at different heights, and a climber handles the endgame. It runs on swerve, and a Limelight camera helps it drive up and line up on the reef automatically.	Echo fue construido para Reefscape. Un elevador y una muñeca le permiten anotar coral a distintas alturas, y un escalador se encarga del tramo final. Usa tracción swerve, y una cámara Limelight le ayuda a acercarse y alinearse con el arrecife de forma automática.
+2025 Robot Code (Echo) | Team 1661 Griffitrons	Código del robot 2025 (Echo) | Team 1661 Griffitrons
+Code for Echo, our 2025 Reefscape robot. An elevator and a wrist score coral at different heights, a climber handles the endgame, and a swerve drivetrain with Limelight vision drives up and lines up on the reef.	Código de Echo, nuestro robot Reefscape de 2025. Un elevador y una muñeca anotan coral a distintas alturas, un escalador se encarga del tramo final y una tracción swerve con visión Limelight se acerca y se alinea con el arrecife.
+1661-RobotCode-2025: Code for Echo, our 2025 Reefscape robot. An elevator and a wrist score coral at different heights, a climber handles the endgame, and...	1661-RobotCode-2025: Código de Echo, nuestro robot Reefscape de 2025. Un elevador y una muñeca anotan coral a distintas alturas, un escalador se encarga del tramo final y una...

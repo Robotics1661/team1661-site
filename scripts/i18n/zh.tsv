@@ -84,8 +84,6 @@ RobotPy	=
 Swerve drive	Swerve 舵轮底盘
 Phoenix 6	=
 2025 · REEFSCAPE	=
-2025 Robot Code	2025 年机器人代码
-Code for our 2025 Reefscape robot.	我们 2025 年 Reefscape 赛季机器人的代码。
 Java	=
 PathPlanner	=
 2024 · CRESCENDO	=
@@ -275,7 +273,6 @@ Flywheel shooter	飞轮发射器
 View the code	查看代码
 About the code	关于代码
 2025 photo coming soon	2025 年照片即将上线
-2025 robot	2025 年机器人
 Built for Reefscape. An elevator and a wrist let it score coral at different heights, and a climber handles the endgame. It runs on swerve, and a Limelight camera helps it drive up and line up on the reef automatically.	为 Reefscape 赛季而造。升降机和腕部机构让它能把珊瑚（coral）放到不同高度，攀爬机构负责比赛末段。它采用 swerve 底盘，Limelight 摄像头帮助它自动驶近并对准珊瑚礁。
 Wrist	腕部机构
 Coral intake	珊瑚吸取机构
@@ -399,9 +396,7 @@ Java 17	=
 WPILib 2024 (command-based)	WPILib 2024（基于命令）
 Phoenix 5 and 6, PathPlanner, REVLib, SDS swerve library	Phoenix 5 和 6、PathPlanner、REVLib、SDS swerve 库
 1661-RobotCode-2024: Code for Eclipse, our 2024 Crescendo robot, which won the Excellence in Engineering Award at the Los Angeles Regional. It shoots game...	1661-RobotCode-2024：Eclipse 的代码，它是我们 2024 年 Crescendo 赛季的机器人，在洛杉矶分站赛上获得了卓越工程奖。它把比赛道具……
-2025 Robot Code | Team 1661 Griffitrons	2025 年机器人代码 | Team 1661 Griffitrons
 Code · 2025 · REEFSCAPE	代码 · 2025 · REEFSCAPE
-Code for our 2025 Reefscape robot. An elevator and a wrist score coral at different heights, a climber handles the endgame, and a swerve drivetrain with Limelight vision drives up and lines up on the reef.	我们 2025 年 Reefscape 赛季机器人的代码。升降机和腕部机构把珊瑚（coral）放到不同高度，攀爬机构负责比赛末段，配有 Limelight 视觉的 swerve 底盘驶近并对准珊瑚礁。
 1661-RobotCode-2025	=
 Elevator, wrist, intake and climber subsystems, with manual, move-to and calibration commands	升降机、腕部、进料和攀爬子系统，包含手动、移动到位和校准命令
 Automatic coral intake and an auto drive, aim and score command	自动吸取珊瑚，以及自动驾驶、瞄准并得分的命令
@@ -409,7 +404,6 @@ PathPlanner autos, including a command that pathfinds, runs a command, then foll
 SysId characterization commands and an autonomous debugger for tuning	SysId 表征命令和用于调试的自动阶段调试器
 WPILib 2025 (command-based)	WPILib 2025（基于命令）
 Phoenix 6, PathPlanner, REVLib	=
-1661-RobotCode-2025: Code for our 2025 Reefscape robot. An elevator and a wrist score coral at different heights, a climber handles the endgame, and a...	1661-RobotCode-2025：我们 2025 年 Reefscape 赛季机器人的代码。升降机和腕部机构把珊瑚（coral）放到不同高度，攀爬机构负责比赛末段，配有……
 2026 Robot Code | Team 1661 Griffitrons	2026 年机器人代码 | Team 1661 Griffitrons
 Code · 2026 · REBUILT	代码 · 2026 · REBUILT
 Code for our 2026 robot, which won the Creativity Award at the Ventura District event. It is written in Python with RobotPy, a change from the Java we used in earlier years.	我们 2026 年机器人的代码，它在文图拉地区赛上获得了创造力奖。代码用 Python 和 RobotPy 编写，不同于我们往年使用的 Java。
@@ -499,3 +493,10 @@ Available in English, Spanish and Simplified Chinese, picked automatically from 
 Dark mode by default, with a toggle for light mode	默认深色模式，可切换为浅色模式
 Install the build dependency	安装构建依赖
 Rebuild the generated pages	重新生成页面
+2025 Robot Code (Echo)	2025 年机器人代码（Echo）
+Code for Echo, our 2025 Reefscape robot.	Echo 的代码，它是我们 2025 年 Reefscape 赛季的机器人。
+Echo	=
+Echo was built for Reefscape. An elevator and a wrist let it score coral at different heights, and a climber handles the endgame. It runs on swerve, and a Limelight camera helps it drive up and line up on the reef automatically.	Echo 是为 Reefscape 赛季而造的。升降机和腕部机构让它能把珊瑚（coral）放到不同高度，攀爬机构负责比赛末段。它采用 swerve 底盘，Limelight 摄像头帮助它自动驶近并对准珊瑚礁。
+2025 Robot Code (Echo) | Team 1661 Griffitrons	2025 年机器人代码（Echo） | Team 1661 Griffitrons
+Code for Echo, our 2025 Reefscape robot. An elevator and a wrist score coral at different heights, a climber handles the endgame, and a swerve drivetrain with Limelight vision drives up and lines up on the reef.	Echo 的代码，它是我们 2025 年 Reefscape 赛季的机器人。升降机和腕部机构把珊瑚（coral）放到不同高度，攀爬机构负责比赛末段，配有 Limelight 视觉的 swerve 底盘驶近并对准珊瑚礁。
+1661-RobotCode-2025: Code for Echo, our 2025 Reefscape robot. An elevator and a wrist score coral at different heights, a climber handles the endgame, and...	1661-RobotCode-2025：Echo 的代码，它是我们 2025 年 Reefscape 赛季的机器人。升降机和腕部机构把珊瑚（coral）放到不同高度，攀爬机构负责比赛末段，配有……
